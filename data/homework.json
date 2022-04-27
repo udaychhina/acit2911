@@ -1,0 +1,20 @@
+[
+    {
+        "Course": "ACIT 2911",
+        "Type": "Assignment 2",
+        "Description": "Do some agile stuff",
+        "DueDate": "June 1st, 2022"
+    },
+    {
+        "Course": "ACIT 2811",
+        "Type": "Assignment 3",
+        "Description": "Explain what makes good UI/UX",
+        "DueDate": "June 3rd, 2022"
+    },
+    {
+        "Course": "ACIT 2911",
+        "Type": "Quiz",
+        "Description": "Quiz on github",
+        "DueDate": "June 5th, 2022"
+    }
+]
