@@ -1,43 +1,42 @@
-<!DOCTYPE html>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-<html>
+{% extends 'base.html' %}
+{% include 'header.html' %}
 
-<head>
 
-    <title>Week 9 flask</title>
-</head>
+{% block title %} Home {% endblock %}
 
-<body>
-    <div class="container">
-        <table style="width:100%">
-            <thead>
-                <tr>
-                    <th>Course</th>
-                    <th>Type</th>
-                    <th>Description</th>
-                    <th>Due Date</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for homework in homeworkdata %}
-                <tr>
-                    <td>
-                        {{ homework.Course }}
-                    </td>
-                    <td>
-                        {{ homework.Type }}
-                    </td>
-                    <td>
-                        {{ homework.Description }}
-                    </td>
-                    <td>
-                        {{ homework.DueDate }}
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <div class="col md-12">
+            <div class="jumbotron p-3">
+                <table class="table table-hover table-dark">
+                    <tr>
+                        <th>Course</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                        <th>Due Date</th>   
+                        <th>Action</th>              
+                    </tr>
+
+                    {% for homework in homeworkdata %}
+                    <tr>
+                        <td>{{ homework.Course }}</td>
+                        <td>{{ homework.Type }}</td>
+                        <td>{{ homework.Description }}</td>
+                        <td>{{ homework.DueDate }}</td>
+
+                        <td>
+                            <a href="" class="btn btn-success btn-xs" data-toggle="modal" data-target="#modaledit">Add</a>
+                            <a href="" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modaledit">Edit</a>
+                            <a href="" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#modaledit">Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
     </div>
-</body>
+</div>
 
-</html>
+{% endblock %}
