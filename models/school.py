@@ -7,7 +7,7 @@ class School:
         with open("data/homework.json", 'r') as fp:
             data = json.load(fp)
             for homework in data:
-                self.hwlist.append(Homework(homework["course"], homework["typehw"], homework["description"], homework["duedate"]))
+                self.hwlist.append(Homework(homework["course"], homework["name"], homework["typehw"], homework["description"], homework["duedate"],homework["completed"]))
 
     def __len__(self):
         return len(self.hwlist)

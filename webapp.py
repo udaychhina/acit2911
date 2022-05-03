@@ -1,4 +1,3 @@
-from multiprocessing.sharedctypes import Value
 from flask import Flask, render_template, request, jsonify
 import json
 from models.school import School
@@ -16,7 +15,7 @@ def homepage():
 
 # Brings up the create page with the forms
 @app.route("/create")
-def testpage():
+def createpage():
     return render_template("create.html"), 200
 
 # Displays all the homework in a JSON format
@@ -31,16 +30,18 @@ def stupage():
 def create_student():
     # Getting course, type, description, and due date
     course = request.form.get("course")
+    name = request.form.get("name")
     type = request.form.get("type")
     desc = request.form.get("description")
     dd = request.form.get("duedate")
+
     
     # Creating the school to place all the homework in  
     school = School("BCIT")
 
     try:
         # Adding the homework to the school
-        homework = Homework(course, type, desc, dd)
+        homework = Homework(course, name, type, desc, dd)
         school.add(homework)
         school.save()
         return "Homework added", 201

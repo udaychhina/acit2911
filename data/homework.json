@@ -1,32 +1,35 @@
 [
     {
         "course": "ACIT2911",
-        "typehw": "Assignment 2",
+        "name": "ACIT2911 assignment 2",
+        "typehw": "Assignment",
         "description": "Do some agile stuff",
-        "duedate": "June 1st, 2022"
+        "duedate": "June 1st, 2022",
+        "completed": "no"
     },
     {
         "course": "ACIT2811",
-        "typehw": "Assignment 3",
+        "name": "Assignment 3",
+        "typehw": "Assignment",
         "description": "Explain what makes good UI/UX",
-        "duedate": "June 3rd, 2022"
+        "duedate": "June 3rd, 2022",
+        "completed": "no"
     },
     {
         "course": "ACIT2911",
+        "name": "Quiz 4",
         "typehw": "Quiz",
         "description": "Quiz on github",
-        "duedate": "June 5th, 2022"
+        "duedate": "June 5th, 2022",
+        "completed": "no"
     },
+
     {
         "course": "ACIT2911",
-        "typehw": "Final",
-        "description": "Final on all content",
-        "duedate": "June 20th, 2022"
-    },
-    {
-        "course": "ACIT2911",
+        "name": "Thingy",
         "typehw": "Homework",
-        "description": "Agile homework",
-        "duedate": "June 1st, 2023"
+        "description": "quiz at 9:00 monday",
+        "duedate": "test",
+        "completed": "no"
     }
 ]

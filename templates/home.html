@@ -13,9 +13,11 @@
             <thead>
                 <tr>
                     <th>Course</th>
+                    <th>Name</th>
                     <th>Type</th>
                     <th>Description</th>
                     <th>Due Date</th>
+                    <th>Completed?</th>
                 </tr>
             </thead>
             <tbody>
@@ -25,6 +27,9 @@
                         {{ homework.course }}
                     </td>
                     <td>
+                        {{ homework.name }}
+                    </td>
+                    <td>
                         {{ homework.typehw }}
                     </td>
                     <td>
@@ -32,6 +37,9 @@
                     </td>
                     <td>
                         {{ homework.duedate }}
+                    </td>
+                    <td>
+                        {{ homework.completed }}
                     </td>
                 </tr>
                 {% endfor %}

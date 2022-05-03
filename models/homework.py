@@ -1,5 +1,5 @@
 class Homework:
-    def __init__(self, Course, Type, Description, DueDate):
+    def __init__(self, Course, Name, Type, Description, DueDate, Completed="no"):
 
         if type(Course) != str:
             raise ValueError("Must be string.")
@@ -10,9 +10,12 @@ class Homework:
         if type(DueDate) != str:
             raise ValueError("Must be a string.")
         self.course = Course
+        self.name = Name
         self.typehw = Type
         self.description = Description
         self.duedate = DueDate
+        self.completed = Completed
+
 
         
 
