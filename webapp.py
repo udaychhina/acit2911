@@ -1,5 +1,5 @@
-from flask import Flask, render_template, request, jsonify
-import json
+from flask import Flask, render_template, request, jsonify, flash, redirect
+import json, datetime
 from models.school import School
 from models.homework import Homework
 
@@ -34,8 +34,8 @@ def create_student():
     type = request.form.get("type")
     desc = request.form.get("description")
     dd = request.form.get("duedate")
+    #dd = get_date()
 
-    
     # Creating the school to place all the homework in  
     school = School("BCIT")
 
@@ -48,6 +48,18 @@ def create_student():
         # If theres a value error returns 400 error
     except ValueError:
         return "Invalid parameters", 400
+
+
+def get_date():
+    # get date in field in YYYY-MM-DD format
+    date_valid = request.form.get("duedate")
+    try:
+        datetime.datetime.strptime(date_valid, '%Y-%m-%d')
+    except ValueError:
+        flash("Please enter date as YYYY-MM-DD")
+        return redirect("/create")      # just goes to error page, idk how to redirect back?
+
+    return str(date_valid)
 
 
 if __name__ == "__main__":

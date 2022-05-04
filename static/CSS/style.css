@@ -1,0 +1,57 @@
+body {
+    background-color: #013;
+    color: #fff;
+}
+
+/* table styling */
+table, th, td {
+    border: 5px inset #fff;
+}
+
+table {
+    background-color: #036;
+}
+
+thead {
+    background-color: #05a;
+    font-size: 24px;
+}
+
+tbody {
+    font-size: 16px;
+}
+
+th {
+    text-align: center;
+}
+
+td {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    height: 20px;
+    width: 100px;
+}
+
+tbody > tr:hover {
+    color: #0c8;
+}
+
+/* edit and delete buttons */
+.sidebyside {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+}
+
+.Bedit, .Bdelete {
+    color: #013;
+    border-radius: 8px;
+}
+
+.Bedit {
+    background-color: #fb0;
+}
+
+.Bdelete {
+    background-color: #f45;
+}

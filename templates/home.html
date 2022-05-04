@@ -2,50 +2,57 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <html>
 
-<head>
+    <head>
+        <title>Homework: Down Bread</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
 
-    <title>Week 9 flask</title>
-</head>
-
-<body>
-    <div class="container">
-        <table style="width:100%">
-            <thead>
-                <tr>
-                    <th>Course</th>
-                    <th>Name</th>
-                    <th>Type</th>
-                    <th>Description</th>
-                    <th>Due Date</th>
-                    <th>Completed?</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for homework in homeworkdata %}
-                <tr>
-                    <td>
-                        {{ homework.course }}
-                    </td>
-                    <td>
-                        {{ homework.name }}
-                    </td>
-                    <td>
-                        {{ homework.typehw }}
-                    </td>
-                    <td>
-                        {{ homework.description }}
-                    </td>
-                    <td>
-                        {{ homework.duedate }}
-                    </td>
-                    <td>
-                        {{ homework.completed }}
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
-</body>
+    <body>
+        <div class="container">
+            <table style="width:100%">
+                <thead>
+                        <tr>
+                        <th>Course</th>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                        <th>Due Date</th>
+                        <th>placeholder</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for homework in homeworkdata %}
+                    <tr>
+                        <td>
+                            {{ homework.course }}
+                        </td>
+                        <td>
+                            {{ homework.name }}
+                        </td>
+                        <td>
+                            {{ homework.typehw }}
+                        </td>
+                        <td>
+                            {{ homework.description }}
+                        </td>
+                        <td>
+                            {{ homework.duedate }}
+                        </td>
+                        <td>
+                            {{ homework.completed}}
+                        </td>
+                        <td>
+                            <div class="sidebyside">
+                                <button class="Bedit">Edit</button>
+                                <button class="Bdelete">Delete</button>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </body>
 
 </html>
