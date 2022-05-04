@@ -22,11 +22,11 @@ def createpage():
 def indexpage():
     return render_template("index.html"), 200
 
-@app.route("/btn")
+@app.route("/test")
 def btn():
     with open(r"data\homework.json", "r") as fp:
         data = json.load(fp)
-    return render_template("btn.html", homeworkdata=data), 200
+    return render_template("test.html", homeworkdata=data), 200
 
 # Displays all the homework in a JSON format
 @app.route("/homework", methods=["GET"])
