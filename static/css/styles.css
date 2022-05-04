@@ -1,0 +1,83 @@
+/*Import Google Font*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*Table*/
+body {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-family: 'Roboto', sans-serif;
+  background-color: #F5F5F5;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.header_fixed {
+  max-height: 100vh;
+  width: 100%;
+  overflow: auto;
+  border: 1px solid #dddddd;
+}
+
+.header_fixed thead th {
+  position: sticky;
+  top: 0;
+  background-color: black;
+  color: #e6e7e8;
+  font-size: 25px;
+}
+
+th,
+td {
+  border-bottom: 1px solid #dddddd;
+  padding: 10px 20px;
+  font-size: 20px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+tr:nth-child(odd) {
+  background-color: #edeef1;
+}
+
+tr:hover td {
+  color: #44b478;
+  cursor: pointer;
+  background-color: #ffffff;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: initial;
+  gap: 4.4px;
+}
+
+.button {
+  border: none;
+  padding: 7px 17px;
+  border-radius: 20px;
+  color: #ffffff;
+  display: inline-block;
+}
+
+.button-1 {
+  background-color: #f0ad4e;
+  font-weight: bold;
+}
+
+.button-2 {
+  background-color: #d9534f;
+  font-weight: bold;
+}
