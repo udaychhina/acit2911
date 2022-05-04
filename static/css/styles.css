@@ -4,6 +4,7 @@
 * {
   margin: 0;
   padding: 0;
+  /*https://www.w3schools.com/cssref/css3_pr_box-sizing.asp*/
   box-sizing: border-box;
 }
 
@@ -18,17 +19,20 @@ body {
 
 table {
   width: 100%;
+  /*https://www.w3schools.com/cssref/pr_border-collapse.asp*/
   border-collapse: collapse;
 }
 
 .header_fixed {
   max-height: 100vh;
   width: 100%;
+  /*https://www.w3schools.com/cssref/pr_pos_overflow.asp*/
   overflow: auto;
   border: 1px solid #dddddd;
 }
 
 .header_fixed thead th {
+  /*https://www.w3schools.com/css/css_positioning.asp*/
   position: sticky;
   top: 0;
   background-color: black;
@@ -43,6 +47,7 @@ td {
   font-size: 20px;
 }
 
+/*https://www.w3schools.com/cssref/sel_nth-child.asp*/
 tr:nth-child(even) {
   background-color: #dddddd;
 }
@@ -51,6 +56,7 @@ tr:nth-child(odd) {
   background-color: #edeef1;
 }
 
+/*https://www.w3schools.com/cssref/sel_hover.asp*/
 tr:hover td {
   color: #44b478;
   cursor: pointer;
