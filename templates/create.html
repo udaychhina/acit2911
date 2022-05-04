@@ -3,10 +3,21 @@
     <head>
         <title>Creating new note...</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet"> 
     </head>
 
    <body>
-        <form action="/homework" method="post" >
+        <nav class="sticky">
+            <ul>
+                <li><a href="/">Homework</a></li>
+                <li><a href="/create">Create</a></li>
+                <li><a href="/about">About</a></li>
+            </ul>
+        </nav>
+
+        <form action="/homework" method="post" class="forms">
             <div class="form-group">
                 <input type="text" name="course" placeholder="Course" class="form-control" />
             </div>
@@ -22,9 +33,9 @@
             <div class="form-group">
                 <input type="text" name="duedate" placeholder="YYYY-MM-DD" class="form-control" />
             </div>  
-            <input type="submit" value="Add Assignment" class="btn btn-primary" />
+            <input type="submit" value="Add Assignment" class="btn btn-primary Bconfirm" />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="/" class="btn btn-primary">Cancel</a>
+            <a href="/" class="btn btn-primary Bcancel">Cancel</a>
         </form>
     </body>
 

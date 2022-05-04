@@ -1,13 +1,23 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <html>
 
     <head>
         <title>Homework: Down Bread</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet"> 
     </head>
 
     <body>
+        <nav class="sticky">
+            <ul>
+                <li><a href="/">Homework</a></li>
+                <li><a href="/create">Create</a></li>
+                <li><a href="/about">About</a></li>
+            </ul>
+        </nav>
+
         <div class="container">
             <table style="width:100%">
                 <thead>
@@ -17,7 +27,7 @@
                         <th>Type</th>
                         <th>Description</th>
                         <th>Due Date</th>
-                        <th>placeholder</th>
+                        <th>Completed?</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
