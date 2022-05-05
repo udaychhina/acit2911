@@ -52,12 +52,14 @@ def create_student():
     try:
         # Adding the homework to the school
         homework = Homework(course, name, type, desc, dd)
+        if homework.course == "" or homework.name == "" or homework.typehw == "" or homework.description == "" or homework.duedate == "":
+            raise ValueError
         school.add(homework)
         school.save()
         return "Homework added", 201
         # If theres a value error returns 400 error
     except ValueError:
-        return "Invalid parameters", 400
+        return "Invalid. You must fill the entire form.", 400
 
 
 if __name__ == "__main__":
