@@ -26,27 +26,6 @@
     margin-right: auto;
   }
 
-  .nav__links {
-    list-style: none;
-    display: flex;
-    font-family: "Inter", sans-serif;
-    font-size: 18px;
-    color: #edf0f1;
-    text-decoration: none;
-  }
-
-  .nav__links li {
-    padding: 0px 15px;
-  }
-  
-  .nav__links li a {
-    transition: all 0.3s ease 0s;
-  }
-  
-  .nav__links li a:hover {
-    color: #0088a9;
-  }
-
   /*Table*/
   table {
     width: 100%;
