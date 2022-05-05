@@ -23,7 +23,7 @@ def indexpage():
     return render_template("index.html"), 200
 
 @app.route("/test")
-def btn():
+def base():
     with open(r"data\homework.json", "r") as fp:
         data = json.load(fp)
     return render_template("test.html", homeworkdata=data), 200

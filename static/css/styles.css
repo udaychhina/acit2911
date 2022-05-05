@@ -157,7 +157,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 108vh;
+    height: 100vh;
   }
   .form{
     width: 360px;
@@ -167,6 +167,7 @@
   }
   .form__title{
     font-weight: 400;
+    margin-top: -1rem;
     margin-bottom: 3rem;
   }
   .form__div{
