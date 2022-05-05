@@ -38,7 +38,6 @@
     width: 100%;
     /*https://www.w3schools.com/cssref/pr_pos_overflow.asp*/
     overflow: auto;
-    border: 1px solid #dddddd;
   }
 
   .header_fixed thead th {
