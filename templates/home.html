@@ -1,15 +1,17 @@
-<!DOCTYPE html>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <html>
-
 <head>
-
+    <!DOCTYPE html>
+    <link rel="stylesheet" href="../static/styles/style.css">
     <title>Week 9 flask</title>
 </head>
 
 <body>
+    <header>
+        <a href="http://127.0.0.1:5000" class="navigation" >Homepage</a>
+        <a href="http://127.0.0.1:5000/create" class="navigation">Create</a>
+    </header>
     <div class="container">
-        <table style="width:100%">
+        <table style="width:95%">
             <thead>
                 <tr>
                     <th>Course</th>
@@ -18,6 +20,7 @@
                     <th>Description</th>
                     <th>Due Date</th>
                     <th>Completed?</th>
+                    <th>Functions</th>
                 </tr>
             </thead>
             <tbody>
@@ -39,7 +42,14 @@
                         {{ homework.duedate }}
                     </td>
                     <td>
-                        {{ homework.completed }}
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                    </td>
+                    <td class="bottun_col">
+                        <button class="edit" type="button">Edit</button>
+                        <button class="delete" type="button">Delete</button>
                     </td>
                 </tr>
                 {% endfor %}
