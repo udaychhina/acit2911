@@ -1,97 +1,165 @@
-/*Import Google Font*/
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap');
-
 * {
   margin: 0;
   padding: 0;
   /*https://www.w3schools.com/cssref/css3_pr_box-sizing.asp*/
   box-sizing: border-box;
-}
+  }
 
-/*Table*/
-body {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  font-family: 'Roboto', sans-serif;
-  background-color: #F5F5F5;
-}
+  body {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    background-color: #F5F5F5;
+  }
 
-table {
-  width: 100%;
-  /*https://www.w3schools.com/cssref/pr_border-collapse.asp*/
-  border-collapse: collapse;
-}
+  /*Header*/
+  header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 18px 10%;
+    background-color: #F5F5F5;
+  }
+  
+  h1 {
+    margin-right: auto;
+  }
 
-.header_fixed {
-  max-height: 100vh;
-  width: 100%;
-  /*https://www.w3schools.com/cssref/pr_pos_overflow.asp*/
-  overflow: auto;
-  border: 1px solid #dddddd;
-}
+  .nav__links {
+    list-style: none;
+    display: flex;
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+    color: #edf0f1;
+    text-decoration: none;
+  }
 
-.header_fixed thead th {
-  /*https://www.w3schools.com/css/css_positioning.asp*/
-  position: sticky;
-  top: 0;
-  background-color: black;
-  color: #FFFFFF;
-  font-size: 25px;
-}
+  .nav__links li {
+    padding: 0px 15px;
+  }
+  
+  .nav__links li a {
+    transition: all 0.3s ease 0s;
+  }
+  
+  .nav__links li a:hover {
+    color: #0088a9;
+  }
 
-th,
-td {
-  border-bottom: 1px solid #dddddd;
-  padding: 10px 20px;
-  font-size: 20px;
-}
+  /*Table*/
+  table {
+    width: 100%;
+    /*https://www.w3schools.com/cssref/pr_border-collapse.asp*/
+    border-collapse: collapse;
+  }
 
-/*https://www.w3schools.com/cssref/sel_nth-child.asp*/
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
+  .header_fixed {
+    max-height: 100vh;
+    width: 100%;
+    /*https://www.w3schools.com/cssref/pr_pos_overflow.asp*/
+    overflow: auto;
+    border: 1px solid #dddddd;
+  }
 
-tr:nth-child(odd) {
-  background-color: #edeef1;
-}
+  .header_fixed thead th {
+    /*https://www.w3schools.com/css/css_positioning.asp*/
+    position: sticky;
+    top: 0;
+    background-color: black;
+    color: #FFFFFF;
+    font-size: 25px;
+  }
 
-/*https://www.w3schools.com/cssref/sel_hover.asp*/
-tr:hover td {
-  color: #44b478;
-  cursor: pointer;
-  background-color: #ffffff;
-}
+  th,
+  td {
+    border-bottom: 1px solid #dddddd;
+    padding: 10px 20px;
+    font-size: 20px;
+  }
 
-.button-container {
-  display: flex;
-  justify-content: flex-start;
-  align-items: initial;
-  gap: 4.4px;
-}
+  /*https://www.w3schools.com/cssref/sel_nth-child.asp*/
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
 
-.button {
-  border: none;
-  padding: 7px 17px;
-  border-radius: 20px;
-  color: #ffffff;
-  display: inline-block;
-}
+  tr:nth-child(odd) {
+    background-color: #edeef1;
+  }
 
-.button-1 {
-  background-color: #f0ad4e;
-  font-weight: bold;
-}
+  /*https://www.w3schools.com/cssref/sel_hover.asp*/
+  tr:hover td {
+    color: #44b478;
+    cursor: pointer;
+    background-color: #ffffff;
+  }
 
-.button-1:hover{
-  background-color: #ff9100;
-}
+  /*Buttons*/
+  .button-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: initial;
+    gap: 4.4px;
+  }
 
-.button-2 {
-  background-color: #d9534f;
-  font-weight: bold;
-}
+  .button {
+    border: none;
+    padding: 7px 17px;
+    border-radius: 20px;
+    color: #ffffff;
+    display: inline-block;
+  }
+  
+  a.button{
+    font-size: medium;
+    text-decoration: none;
+  }
 
-.button-2:hover{
-  background-color: #ff0800;
-}
+  .button-1 {
+    background-color: #f0ad4e;
+    font-weight: bold;
+  }
+
+  .button-1:hover{
+    background-color: #ff9100;
+  }
+
+  .button-2 {
+    background-color: #d9534f;
+    font-weight: bold;
+  }
+
+  .button-2:hover{
+    background-color: #ff0800;
+  }
+
+  .navbar-btn-container{
+    gap: 2px;
+  }
+
+  .button-3 {
+    background-color: #5cb85c;
+    font-weight: bold;
+  }
+
+  .button-3:hover{
+    background-color: #0bd80b;
+  }
+
+  .button-4 {
+    background-color: #0275d8;
+    font-weight: bold;
+  }
+
+  .button-4:hover{
+    background-color: #0088ff;
+  }
+
+  .button-5 {
+    background-color: #3e4244;
+    font-weight: bold;
+  }
+
+  .button-5:hover{
+    background-color: #1a1b1b;
+  }

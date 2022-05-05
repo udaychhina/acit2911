@@ -5,7 +5,7 @@
 {% block body %}
 
 <div class="header_fixed">
-    <h1>Homework Tracker App</h1>
+    {% include 'header.html' %}
     <table>
         <thead>
             <tr>
@@ -25,8 +25,8 @@
                 <td>{{ homework.DueDate }}</td>
                 <td>
                     <div class="button-container">
-                        <button class="button button-1">Edit</button>
-                        <button class="button button-2">Delete</button>
+                        <a class="button button-1">Edit</a>
+                        <a class="button button-2">Delete</a>
                     </div>
                 </td>
             </tr>
