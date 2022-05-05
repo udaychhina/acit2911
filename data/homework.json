@@ -22,14 +22,5 @@
         "description": "Quiz on github",
         "duedate": "June 5th, 2022",
         "completed": "no"
-    },
-
-    {
-        "course": "ACIT2911",
-        "name": "Thingy",
-        "typehw": "Homework",
-        "description": "quiz at 9:00 monday",
-        "duedate": "test",
-        "completed": "no"
     }
 ]
