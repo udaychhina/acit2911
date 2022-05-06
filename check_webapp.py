@@ -82,10 +82,11 @@ def create():
     school.add(homework)
     school.save()
     
-    status, data = make_request("/homework", 201, "post", data=json.dumps(deadline))
+    #not working yet
+    """status, data = make_request("/homework", 201, "post", data=json.dumps(deadline))
     if not status:
         print("  !!! NOK", data)
-        return
+        return"""
     
     status, data = make_request("/", 200, decode_json=False)
     if not status:
