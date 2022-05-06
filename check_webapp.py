@@ -1,6 +1,8 @@
 import inspect
 import json
 from logging.handlers import DatagramHandler
+from models.homework import Homework
+from models.school import School
 
 import requests
 
@@ -74,10 +76,10 @@ def create():
     deadline={"course": "ACIT4200", "name": "assignment 4", \
     "typehw": "Assignment", "description": "Do some brainstorm", \
     "duedate": "April 20, 2022", "completed": "no"}
-    status, data = make_request("/homework", 201, "post", deadline)
-    if not status:
-        print("  !!! NOK", data)
-        return
+    homework = Homework(deadline['course'], deadline['name'], deadline['typehw'], deadline['description'], deadline['duedate'])
+    school = School("BCIT")
+    school.add(homework)
+    school.save()
     
     status, data = make_request("/", 200, decode_json=False)
     if not status:
