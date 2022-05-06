@@ -18,6 +18,7 @@ def homepage():
 def createpage():
     return render_template("create.html"), 200
 
+# Dummy pages
 @app.route("/index")
 def indexpage():
     return render_template("index.html"), 200
