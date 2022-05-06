@@ -87,6 +87,9 @@ def create():
         return
     
     assert "ACIT4200" in data
+    assert "Assignment" in data
+    assert "Do some brainstorm" in data
+    assert "April 20, 2022" in data
     print("  --> OK!")
 
     
