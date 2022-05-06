@@ -69,10 +69,30 @@ def homepage():
     assert "</table>" in data
     print("  --> OK!")
     
+def create():
+    """Checks the /homework API endpoint (POST)"""
+    deadline={"course": "ACIT4200", "name": "assignment 4", \
+    "typehw": "Assignment", "description": "Do some brainstorm", \
+    "duedate": "April 20, 2022", "completed": "no"}
+    status, data = make_request("/homework", 201, "post", deadline)
+    if not status:
+        print("  !!! NOK", data)
+        return
+    
+    status, data = make_request("/", 200, decode_json=False)
+    if not status:
+        print("  !!! NOK", data)
+        return
+    
+    assert "ACIT4200" in data
+    print("  --> OK!")
+
+    
 def check():
     funcs = [
         reset_json,
         homepage,
+        create
     ]
 
     for func in funcs:
