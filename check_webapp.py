@@ -74,12 +74,18 @@ def homepage():
 def create():
     """Checks the /homework API endpoint (POST)"""
     deadline={"course": "ACIT4200", "name": "assignment 4", \
-    "typehw": "Assignment", "description": "Do some brainstorm", \
-    "duedate": "April 20, 2022", "completed": "no"}
-    homework = Homework(deadline['course'], deadline['name'], deadline['typehw'], deadline['description'], deadline['duedate'])
+    "type": "Assignment", "description": "Do some brainstorm", \
+    "duedate": "April 20, 2022"}
+    deadline_dump=json.dumps(deadline)
+    homework = Homework(deadline['course'], deadline['name'], deadline['type'], deadline['description'], deadline['duedate'])
     school = School("BCIT")
     school.add(homework)
     school.save()
+    
+    status, data = make_request("/homework", 201, "post", data=json.dumps(deadline))
+    if not status:
+        print("  !!! NOK", data)
+        return
     
     status, data = make_request("/", 200, decode_json=False)
     if not status:
