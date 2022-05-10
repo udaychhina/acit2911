@@ -53,7 +53,7 @@ def test_edit_feature(client):
     assert b"April 20, 2022" in response.data
 
     response = client.post("/homework", data={
-        "course": "ACIT0777", "name": "assignment 7.77",
+        "course": "", "name": "assignment 7.77",
         "type": "Assignment", "description": "Do some luck",
         "duedate": "April 7, 2077"
     })
