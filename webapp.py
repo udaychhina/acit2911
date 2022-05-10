@@ -50,6 +50,10 @@ def create_app():
             # If theres a value error returns 400 error
         except ValueError:
             return "Invalid. You must fill the entire form.", 400\
+    
+    @app.route("/welcome")
+    def welcomepage():
+        return render_template("welcome.html"), 200
 
     return app
 
