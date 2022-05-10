@@ -249,11 +249,16 @@
     align-items: center;
   }
   .abt_main {
-    width: 49%;
+    width: 40%;
   }
-  .abt_h {
-    font-weight: 400;
-    margin-top: 4rem;
+  .abt_title {
+    font-weight: 600;
+    font-size: 36px;
+    margin-bottom: 1rem;
+  }
+  .abt_sub {
+    font-weight: 100;
+    margin-top: 2rem;
     margin-bottom: 1rem;
   }
   .abt_p {
