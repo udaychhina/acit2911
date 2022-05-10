@@ -3,6 +3,7 @@ import json
 from models.school import School
 from models.homework import Homework
 
+
 def create_app():
     app = Flask(__name__)
 
@@ -17,17 +18,6 @@ def create_app():
     @app.route("/create")
     def createpage():
         return render_template("create.html"), 200
-
-    # Dummy pages
-    @app.route("/index")
-    def indexpage():
-        return render_template("index.html"), 200
-
-    @app.route("/test")
-    def base():
-        with open(r"data\homework.json", "r") as fp:
-            data = json.load(fp)
-        return render_template("test.html", homeworkdata=data), 200
 
     # Displays all the homework in a JSON format
     @app.route("/homework", methods=["GET"])
@@ -46,8 +36,7 @@ def create_app():
         desc = request.form.get("description")
         dd = request.form.get("duedate")
 
-        
-        # Creating the school to place all the homework in  
+        # Creating the school to place all the homework in
         school = School("BCIT")
 
         try:
@@ -61,10 +50,10 @@ def create_app():
             # If theres a value error returns 400 error
         except ValueError:
             return "Invalid. You must fill the entire form.", 400\
-                
+
     return app
 
 
-if __name__ == "__main__":
+if __name__ == "__main__":  # pragma: no cover
     app = create_app()
     app.run()
