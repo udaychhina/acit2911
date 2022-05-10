@@ -239,3 +239,24 @@
   .form__input:focus{
     border: 1.5px solid var(--first-color);
   }
+
+
+
+  /*===== ABOUT =====*/
+  .about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .abt_main {
+    width: 49%;
+  }
+  .abt_h {
+    font-weight: 400;
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+  }
+  .abt_p {
+    font-size: 18px;
+    line-height: 1.5;
+  }
