@@ -53,9 +53,9 @@ def test_edit_feature(client):
     assert b"April 20, 2022" in response.data
 
     response = client.post("/homework", data={
-        "course": "", "name": "assignment 4",
-        "type": "Assignment", "description": "Do some brainstorm",
-        "duedate": "April 20, 2022"
+        "course": "ACIT0777", "name": "assignment 7.77",
+        "type": "Assignment", "description": "Do some luck",
+        "duedate": "April 7, 2077"
     })
     assert response.status_code == 400
 
