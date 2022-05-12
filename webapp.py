@@ -8,6 +8,7 @@ def create_app():
     app = Flask(__name__)
     school = School("BCIT")
     # Home page that loads the data in a table
+
     @app.route("/")
     def homepage():
         with open(r"data\homework.json", "r") as fp:
@@ -41,7 +42,9 @@ def create_app():
 
         school.delete(id)
         school.save()
-        return redirect("/")
+        with open(r"data\homework.json", "r") as fp:
+            data = json.load(fp)
+        return render_template("home.html", homeworkdata=data), 200
 
     # Homework endpoint for POST, takes course, type, description, and due date from the forms from the /create endpoint
     @app.route("/homework", methods=["POST"])
