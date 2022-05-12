@@ -62,8 +62,7 @@ def create_app():
 
     @app.route("/delete/<string:id>")
     def delete_route(id):
-        if school.delete(id) == False:
-            return "Not exist", 404
+
         school.delete(id)
         school.save()
         with open(r"data\homework.json", "r") as fp:
