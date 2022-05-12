@@ -72,5 +72,5 @@ def test_homework_route(client):
 
 
 def test_delete_route(client):
-    response = client.get("/delete/5a396992050a4429af34687040bc5fd3")
+    response = client.get("/delete/4dc58e94dd6e48048bb773582ea3eb08")
     assert response.status_code == 200
