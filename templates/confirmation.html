@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %} Create {% endblock %}
+
+{% block body %}
+
+<div class="header_fixed">
+    {% include 'header.html' %}
+</div>
+<div class="confirm_div">
+    <div class="confirm_box"  >
+        <img src="{{url_for('static', filename='tick.png')}}"/>
+        <h1>Congratulations!</h1>
+        <p>New deadline has been added. <br> 
+          You can now return to the homepage.</p>
+        <a href="/" class="button button-4">Take me back to homepage</a>
+    </div>
+</div>
+
+{% endblock %}

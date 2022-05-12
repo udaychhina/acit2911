@@ -26,7 +26,7 @@
                 <td>
                     <div class="button-container">
                         <a class="button button-1">Edit</a>
-                        <a class="button button-2">Delete</a>
+                        <a href=" {{ url_for('delete_route', id=homework.id)}} " class="button button-2">Delete</a>
                     </div>
                 </td>
             </tr>
