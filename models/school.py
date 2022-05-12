@@ -33,3 +33,4 @@ class School:
             if hw_id == self.hwlist[i].id:
                 self.hwlist.remove(self.hwlist[i])
                 return True
+        return False

@@ -54,14 +54,16 @@ def create_app():
             # If theres a value error returns 400 error
         except ValueError:
             return "Invalid. You must fill the entire form.", 400\
-    
+
+
     @app.route("/welcome")
     def welcomepage():
         return render_template("welcome.html"), 200
 
-
     @app.route("/delete/<string:id>")
     def delete_route(id):
+        if school.delete(id) == False:
+            return "Not exist", 404
         school.delete(id)
         school.save()
         with open(r"data\homework.json", "r") as fp:
