@@ -271,3 +271,13 @@
   .plist {
     list-style-type: circle;
   }
+
+/*Welcome page*/
+.button-6 {
+    background-color: red;
+    font-weight: bold;
+}
+
+.welcome {
+  text-align: center;
+}
