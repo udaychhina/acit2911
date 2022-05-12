@@ -240,6 +240,7 @@
     border: 1.5px solid var(--first-color);
   }
 
+<<<<<<< HEAD
   /*Confirmation page styling*/
   .confirm_div {
     display: flex;
@@ -272,3 +273,50 @@
     border-radius: 50%;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   }
+=======
+  /*===== ABOUT =====*/
+  .about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .abt_main {
+    width: 40%;
+    padding: 4rem 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(92,99,105,.2);
+  }
+  .abt_title {
+    font-weight: 600;
+    font-size: 36px;
+    margin-top: -2rem;
+    margin-bottom: 1rem;
+  }
+  .abt_sub {
+    font-weight: 600;
+    font-size: 32px;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  .abt_p {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+  .plist {
+    list-style-type: circle;
+  }
+
+/*Welcome page*/
+.button-6 {
+    background-color: red;
+    font-weight: bold;
+}
+
+.welcome {
+  text-align: center;
+}
+
+.space {
+  margin-bottom: 12vh;
+}
+>>>>>>> ff39033ba3e637ee9c395a8f916fe6c164096863
