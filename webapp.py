@@ -14,6 +14,11 @@ def create_app():
             data = json.load(fp)
         return render_template("home.html", homeworkdata=data), 200
 
+    # About page with information about webapp
+    @app.route("/about")
+    def aboutpage():
+        return render_template("about.html"), 200
+
     # Brings up the create page with the forms
     @app.route("/create")
     def createpage():

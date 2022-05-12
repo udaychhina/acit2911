@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %} Create {% endblock %}
+
+{% block body %}
+
+<div class="header_fixed">
+    {% include 'header.html' %}
+</div>
+<div class="about">
+    <div class="abt_main">
+        <h1 class="abt_title">About This Project</h1>
+        <div class="abt_p">
+            This Homework Tracker App is an ACIT2911 Agile Development
+            project, created by team members:
+            <ul class="plist">
+                <li>Aaron Zhang</li>
+                <li>Dean Gotto</li>
+                <li>Jack Tam</li>
+                <li>Tan Pham</li>
+                <li>Trevor Lee</li>
+                <li>Uday Chhina</li>
+            </ul>
+        </div>
+        <h2 class="abt_sub">Features</h2>
+        <div class="abt_p">
+            The homepage of this web application displays homework items
+            being tracked within a table. Each row contains:
+            <ul class="plist">
+                <li>Course ID</li>
+                <li>Homework type</li>
+                <li>A short description</li>
+                <li>Deadline</li>
+                <li>Edit button</li>
+                <li>Delete button</li>
+            </ul>
+            The navigation buttons at the top of the page allow the user to
+            view the homepage, this about section, and a page to create a
+            new homework item to track.
+        </div>
+    </div>
+</div>
+
+{% endblock %}
