@@ -239,3 +239,37 @@
   .form__input:focus{
     border: 1.5px solid var(--first-color);
   }
+
+
+
+  /*===== ABOUT =====*/
+  .about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .abt_main {
+    width: 40%;
+    padding: 4rem 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(92,99,105,.2);
+  }
+  .abt_title {
+    font-weight: 600;
+    font-size: 36px;
+    margin-top: -2rem;
+    margin-bottom: 1rem;
+  }
+  .abt_sub {
+    font-weight: 600;
+    font-size: 32px;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  .abt_p {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+  .plist {
+    list-style-type: circle;
+  }
