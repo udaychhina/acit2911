@@ -245,6 +245,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     height: 80vh;
   }
 
@@ -254,7 +255,6 @@
     border-radius: 1rem;
     box-shadow: 0 10px 25px rgba(92,99,105,.2);
     position: absolute;
-    text-align: center;
   }
   .confirm_box h1{
     font-size: 38px;
