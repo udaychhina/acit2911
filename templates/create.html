@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %} Create {% endblock %}
+
+{% block body %}
+
+<div class="header_fixed">
+    {% include 'header.html' %}
+</div>
+<div class="l-form">
+    <form action="/homework" method="post" class="form"  >
+        <h1 class="form__title">Create New Deadline</h1>
+        <div class="form__div">
+            <input type="text" name="course" class="form__input" placeholder=" " />
+            <label for="" class="form__label">Course</label>
+        </div>
+        <div class="form__div">
+            <input type="text" name="name" placeholder=" " class="form__input" />
+            <label for="" class="form__label">Name of Assignment</label>
+        </div>
+        <div class="form__div">
+            <input type="text" name="type" placeholder=" " class="form__input" />
+            <label for="" class="form__label">Type of Assignment</label>
+        </div>
+        <div class="form__div">
+            <input type="text" name="description" placeholder=" " class="form__input" />
+            <label for="" class="form__label">Description</label>
+        </div>  
+        <div class="form__div">
+            <input type="text" name="duedate" placeholder=" " class="form__input" />
+            <label for="" class="form__label">Due Date</label>
+        </div>  
+        <input type="submit" value="Add Assignment" class="button button-4" />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="/" class="button button-2">Cancel</a>
+    </form>
+</div>
+
+{% endblock %}
