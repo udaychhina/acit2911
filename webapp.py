@@ -16,6 +16,11 @@ def create_app():
             data = json.load(fp)
         return render_template("home.html", homeworkdata=data), 200
 
+    # About page with information about webapp
+    @app.route("/about")
+    def aboutpage():
+        return render_template("about.html"), 200
+
     # Brings up the create page with the forms
     @app.route("/create")
     def createpage():
@@ -49,6 +54,10 @@ def create_app():
             # If theres a value error returns 400 error
         except ValueError:
             return "Invalid. You must fill the entire form.", 400\
+    
+    @app.route("/welcome")
+    def welcomepage():
+        return render_template("welcome.html"), 200
 
 
     @app.route("/delete/<string:id>")
