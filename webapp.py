@@ -6,6 +6,8 @@ from models.homework import Homework
 
 def create_app():
     app = Flask(__name__)
+    # Creating the school to place all the homework in
+    school = School("BCIT")
 
     # Home page that loads the data in a table
     @app.route("/")
@@ -36,9 +38,6 @@ def create_app():
         desc = request.form.get("description")
         dd = request.form.get("duedate")
 
-        # Creating the school to place all the homework in
-        school = School("BCIT")
-
         try:
             # Adding the homework to the school
             homework = Homework(course, name, type, desc, dd)
@@ -46,10 +45,19 @@ def create_app():
                 raise ValueError
             school.add(homework)
             school.save()
-            return "Homework added", 201
+            return render_template("confirmation.html"), 201
             # If theres a value error returns 400 error
         except ValueError:
             return "Invalid. You must fill the entire form.", 400\
+
+
+    @app.route("/delete/<string:id>")
+    def delete_route(id):
+        school.delete(id)
+        school.save()
+        with open(r"data\homework.json", "r") as fp:
+            data = json.load(fp)
+        return render_template("home.html", homeworkdata=data), 200
 
     return app
 
