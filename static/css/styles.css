@@ -240,7 +240,7 @@
     border: 1.5px solid var(--first-color);
   }
 
-<<<<<<< HEAD
+
   /*Confirmation page styling*/
   .confirm_div {
     display: flex;
@@ -273,7 +273,7 @@
     border-radius: 50%;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   }
-=======
+
   /*===== ABOUT =====*/
   .about {
     display: flex;
@@ -319,8 +319,3 @@
 .space {
   margin-bottom: 12vh;
 }
-<<<<<<< HEAD
->>>>>>> 05ca99e74a3194ac6d8fab6afaa699adfdb22cac
-=======
->>>>>>> ff39033ba3e637ee9c395a8f916fe6c164096863
->>>>>>> tan
