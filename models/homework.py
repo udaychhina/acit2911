@@ -1,8 +1,5 @@
-import uuid
-
-
 class Homework:
-    def __init__(self, Course, Name, Type, Description, DueDate, Completed="no"):
+    def __init__(self, Id, Course, Name, Type, Description, DueDate, Completed="no"):
 
         if type(Course) != str:
             raise ValueError("Must be string.")
@@ -12,7 +9,7 @@ class Homework:
             raise ValueError("Must be a string.")
         if type(DueDate) != str:
             raise ValueError("Must be a string.")
-        self.id = uuid.uuid4().hex
+        self.id = Id
         self.course = Course
         self.name = Name
         self.typehw = Type

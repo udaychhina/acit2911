@@ -9,7 +9,7 @@ class School:
         with open("data/homework.json", 'r') as fp:
             data = json.load(fp)
             for homework in data:
-                self.hwlist.append(Homework(homework["course"],
+                self.hwlist.append(Homework(homework["id"], homework["course"],
                                             homework["name"], homework["typehw"], homework["description"],
                                             homework["duedate"], homework["completed"]))
 
@@ -33,3 +33,4 @@ class School:
             if hw_id == self.hwlist[i].id:
                 self.hwlist.remove(self.hwlist[i])
                 return True
+        return False

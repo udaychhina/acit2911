@@ -1,3 +1,4 @@
+import uuid
 from flask import Flask, render_template, request, jsonify
 import json
 from models.school import School
@@ -37,6 +38,7 @@ def create_app():
     @app.route("/homework", methods=["POST"])
     def create_student():
         # Getting course, type, description, and due date
+        id = uuid.uuid4().hex
         course = request.form.get("course")
         name = request.form.get("name")
         type = request.form.get("type")
@@ -45,7 +47,7 @@ def create_app():
 
         try:
             # Adding the homework to the school
-            homework = Homework(course, name, type, desc, dd)
+            homework = Homework(id, course, name, type, desc, dd)
             if homework.course == "" or homework.name == "" or homework.typehw == "" or homework.description == "" or homework.duedate == "":
                 raise ValueError
             school.add(homework)
@@ -60,8 +62,14 @@ def create_app():
         return render_template("welcome.html"), 200
 
 
+    @app.route("/welcome")
+    def welcomepage():
+        return render_template("welcome.html"), 200
+
     @app.route("/delete/<string:id>")
     def delete_route(id):
+        if school.delete(id) == False:
+            return "Not exist", 404
         school.delete(id)
         school.save()
         with open(r"data\homework.json", "r") as fp:
