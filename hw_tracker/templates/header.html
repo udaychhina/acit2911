@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %} Homework Tracker {% endblock %}
+
+{% block body %}
+    {% for message in get_flashed_messages() %}
+    {% if message %}
+    <div class="flash">{{ message }}</div>
+    {% else %}
+    {% endif %}
+    {% endfor %}
+<header>
+    <h1>Homework Tracker App</h1>
+    <div class="navbar-btn-container">
+        {% if g.user %}
+        <a href="/" class="button button-4">Home</a>
+        <a href="/about" class="button button-5">About</a>
+        <a href="/create" class="button button-3">Create</a>
+        <a href="{{ url_for('auth.logout') }}" class="button button-4">Log Out</a>
+        {% else %}
+        <a href="{{ url_for('auth.register') }}" class="button button-4">Register</a>
+        <a href="{{ url_for('auth.login') }}" class="button button-4">Log In</a>
+        {% endif %}
+    </div>
+</header>
+
+{% endblock %}

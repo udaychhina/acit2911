@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %} Tracker App {% endblock %}
+
+{% block body %}
+
+<div class="header_fixed">
+    {% include 'header.html' %}
+    <table>
+        <thead>
+            <tr>
+                <th>Course</th>
+                <th>Type</th>
+                <th>Description</th>
+                <th>Deadline</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for homework in hw_items %}
+            <tr>
+                <td>{{ homework['course'] }}</td>
+                <td>{{ homework['typehw'] }}</td>
+                <td>{{ homework['desc'] }}</td>
+                <td>{{ homework['duedate'] }}</td>
+                <td>
+                    <div class="button-container">
+                        {% if g.user %}
+                        <a href=" {{ url_for('homework.update', id=homework['id']) }} " class="button button-1">Edit</a>
+                        <a href=" {{ url_for('homework.delete', id=homework['id']) }} " class="button button-2">Delete</a>
+                        {% else %}
+                        <a href=" {{ url_for('auth.login') }}" class="button button-4">Login for Action</a>
+                        {% endif %}
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

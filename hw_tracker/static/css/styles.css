@@ -1,9 +1,9 @@
-*,::before,::after {
-  /*https://www.w3schools.com/cssref/css3_pr_box-sizing.asp*/
-  box-sizing: border-box;
-  }
+*, ::before, ::after {
+    /*https://www.w3schools.com/cssref/css3_pr_box-sizing.asp*/
+    box-sizing: border-box;
+}
 
-  body {
+body {
     width: 100%;
     font-family: 'Inter', sans-serif;
     background-color: #F5F5F5;
@@ -11,140 +11,141 @@
     padding: 0;
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
-  }
+}
 
-  /*Header*/
-  header {
+/*Header*/
+header {
     display: flex;
     justify-content: flex-end;
+    
     align-items: center;
     padding: 18px 10%;
     background-color: #F5F5F5;
-  }
-  
-  h1 {
-    margin-right: auto;
-  }
+}
 
-  /*Table*/
-  table {
+h1 {
+    margin-right: auto;
+}
+
+/*Table*/
+table {
     width: 100%;
     /*https://www.w3schools.com/cssref/pr_border-collapse.asp*/
     border-collapse: collapse;
-  }
+}
 
-  .header_fixed {
+.header_fixed {
     max-height: 100vh;
     width: 100%;
     /*https://www.w3schools.com/cssref/pr_pos_overflow.asp*/
     overflow: auto;
-  }
+}
 
-  .header_fixed thead th {
+.header_fixed thead th {
     /*https://www.w3schools.com/css/css_positioning.asp*/
     position: sticky;
     top: 0;
     background-color: black;
     color: #FFFFFF;
     font-size: 25px;
-  }
+}
 
-  th,
-  td {
+th,
+td {
     border-bottom: 1px solid #dddddd;
     padding: 10px 20px;
     font-size: 20px;
-  }
+}
 
-  /*https://www.w3schools.com/cssref/sel_nth-child.asp*/
-  tr:nth-child(even) {
+/*https://www.w3schools.com/cssref/sel_nth-child.asp*/
+tr:nth-child(even) {
     background-color: #dddddd;
-  }
+}
 
-  tr:nth-child(odd) {
+tr:nth-child(odd) {
     background-color: #edeef1;
-  }
+}
 
-  /*https://www.w3schools.com/cssref/sel_hover.asp*/
-  tr:hover td {
+/*https://www.w3schools.com/cssref/sel_hover.asp*/
+tr:hover td {
     color: #44b478;
     cursor: pointer;
     background-color: #ffffff;
-  }
+}
 
-  /*Buttons*/
-  .button-container {
+/*Buttons*/
+.button-container {
     display: flex;
     justify-content: flex-start;
     align-items: initial;
     gap: 4.4px;
-  }
+}
 
-  .button {
+.button {
     border: none;
     padding: 7px 17px;
     border-radius: 20px;
     color: #ffffff;
     display: inline-block;
-  }
-  
-  a.button{
+}
+
+a.button {
     font-size: medium;
     text-decoration: none;
-  }
+}
 
-  .button-1 {
+.button-1 {
     background-color: #f0ad4e;
     font-weight: bold;
-  }
+}
 
-  .button-1:hover{
+.button-1:hover {
     background-color: #ff9100;
-  }
+}
 
-  .button-2 {
+.button-2 {
     background-color: #d9534f;
     font-weight: bold;
-  }
+}
 
-  .button-2:hover{
+.button-2:hover {
     background-color: #ff0800;
-  }
+}
 
-  .navbar-btn-container{
+.navbar-btn-container {
     gap: 2px;
-  }
+}
 
-  .button-3 {
+.button-3 {
     background-color: #5cb85c;
     font-weight: bold;
-  }
+}
 
-  .button-3:hover{
+.button-3:hover {
     background-color: #0bd80b;
-  }
+}
 
-  .button-4 {
+.button-4 {
     background-color: #0275d8;
     font-weight: bold;
-  }
+}
 
-  .button-4:hover{
+.button-4:hover {
     background-color: #0088ff;
-  }
+}
 
-  .button-5 {
+.button-5 {
     background-color: #3e4244;
     font-weight: bold;
-  }
+}
 
-  .button-5:hover{
+.button-5:hover {
     background-color: #1a1b1b;
-  }
+}
 
-  /*===== FORM =====*/
+/*===== FORM =====*/
 
-  :root{
+:root {
     /*===== Colores =====*/
     --first-color: #1A73E8;
     --input-color: #80868B;
@@ -152,30 +153,35 @@
     --body-font: 'Inter', sans-serif;
     --normal-font-size: 1rem;
     --small-font-size: .75rem;
-  }
-  .l-form{
+}
+
+.l-form {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-  }
-  .form{
+}
+
+.form {
     width: 360px;
     padding: 4rem 2rem;
     border-radius: 1rem;
-    box-shadow: 0 10px 25px rgba(92,99,105,.2);
-  }
-  .form__title{
+    box-shadow: 0 10px 25px rgba(92, 99, 105, .2);
+}
+
+.form__title {
     font-weight: 400;
     margin-top: -1rem;
     margin-bottom: 3rem;
-  }
-  .form__div{
+}
+
+.form__div {
     position: relative;
     height: 48px;
     margin-bottom: 1.5rem;
-  }
-  .form__input{
+}
+
+.form__input {
     position: absolute;
     top: 0;
     left: 0;
@@ -188,8 +194,9 @@
     padding: 1rem;
     background: none;
     z-index: 1;
-  }
-  .form__label{
+}
+
+.form__label {
     position: absolute;
     left: 1rem;
     top: 1rem;
@@ -198,8 +205,9 @@
     color: var(--input-color);
     font-size: var(--normal-font-size);
     transition: .3s;
-  }
-  .form__button{
+}
+
+.form__button {
     display: block;
     margin-left: auto;
     padding: .75rem 2rem;
@@ -211,64 +219,90 @@
     border-radius: .5rem;
     cursor: pointer;
     transition: .3s;
-  }
-  .form__button:hover{
-    box-shadow: 0 10px 36px rgba(0,0,0,.15);
-  }
+}
 
-  /*Input focus move up label*/
-  .form__input:focus + .form__label{
+.form__button:hover {
+    box-shadow: 0 10px 36px rgba(0, 0, 0, .15);
+}
+
+/*Input focus move up label*/
+.form__input:focus+.form__label {
     top: -.5rem;
     left: .8rem;
     color: var(--first-color);
     font-size: var(--small-font-size);
     font-weight: 500;
     z-index: 10;
-  }
+}
 
-  /*Input focus sticky top label*/
-  .form__input:not(:placeholder-shown).form__input:not(:focus)+ .form__label{
+/*Input focus sticky top label*/
+.form__input:not(:placeholder-shown).form__input:not(:focus)+.form__label {
     top: -.5rem;
     left: .8rem;
     font-size: var(--small-font-size);
     font-weight: 500;
     z-index: 10;
-  }
+}
 
-  /*Input focus*/
-  .form__input:focus{
+/*Input focus*/
+.form__input:focus {
     border: 1.5px solid var(--first-color);
-  }
+}
 
-  /*Confirmation page styling*/
-  .confirm_div {
+/*===== ABOUT =====*/
+.about {
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    height: 80vh;
-  }
+}
 
-  .confirm_box{
-    width: 360px;
+.abt_main {
+    width: 40%;
     padding: 4rem 2rem;
     border-radius: 1rem;
-    box-shadow: 0 10px 25px rgba(92,99,105,.2);
-    position: absolute;
-  }
-  .confirm_box h1{
-    font-size: 38px;
-    font-weight: 500;
-    margin: 30px 0 30px;
-  }
+    box-shadow: 0 10px 25px rgba(92, 99, 105, .2);
+}
 
-  .confirm_box p {
-    margin: 30px 0px 30px;
-  }
+.abt_title {
+    font-weight: 600;
+    font-size: 36px;
+    margin-top: -2rem;
+    margin-bottom: 1rem;
+}
 
-  .confirm_box img {
-    width: 100px;
-    margin-top: -10px;
-    border-radius: 50%;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  }
+.abt_sub {
+    font-weight: 600;
+    font-size: 32px;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.abt_p {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.plist {
+    list-style-type: circle;
+}
+
+/*Welcome page*/
+.button-6 {
+    background-color: red;
+    font-weight: bold;
+}
+
+.welcome {
+    text-align: center;
+}
+
+.space {
+    margin-bottom: 12vh;
+}
+
+.flash {
+    width: 100%;
+    padding: 1em;
+    background: rgb(251, 102, 102);
+    color: black;
+}
