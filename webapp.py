@@ -65,7 +65,7 @@ def create_app():
     @app.route("/delete/<string:id>")
     def delete_route(id):
         if school.delete(id) == False:
-            return "Not exist", 404
+            return render_template("delete_not_exist.html"), 404
         school.delete(id)
         school.save()
         return render_template("delete_confirm.html"), 200
