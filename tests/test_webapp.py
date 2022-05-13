@@ -71,6 +71,16 @@ def test_homework_route(client):
     assert response.status_code == 200
 
 
+def test_about_route(client):
+    response = client.get("/about")
+    assert response.status_code == 200
+
+
+def test_welcome_route(client):
+    response = client.get("/welcome")
+    assert response.status_code == 200
+
+
 def test_delete_route(client):
     response = client.get("/delete/4dc58e94dd6e48048bb773582ea3eb08")
     assert response.status_code == 404
