@@ -73,4 +73,6 @@ def test_homework_route(client):
 
 def test_delete_route(client):
     response = client.get("/delete/4dc58e94dd6e48048bb773582ea3eb08")
+    assert response.status_code == 404
+    response = client.get("/delete/9caa29fe564146bca1c06aa2488c4a52")
     assert response.status_code == 200
