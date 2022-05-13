@@ -68,9 +68,7 @@ def create_app():
             return "Not exist", 404
         school.delete(id)
         school.save()
-        with open(r"data\homework.json", "r") as fp:
-            data = json.load(fp)
-        return render_template("home.html", homeworkdata=data), 200
+        return render_template("delete_confirm.html"), 200
 
     return app
 
