@@ -240,10 +240,8 @@
     border: 1.5px solid var(--first-color);
   }
 
-<<<<<<< HEAD
 
-=======
->>>>>>> tan
+
   /*Confirmation page styling*/
   .confirm_div {
     display: flex;
@@ -277,8 +275,8 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   }
 
-<<<<<<< HEAD
-=======
+
+
   /*Delete confirmation*/
   .del_confirm_box{
     width: 360px;
@@ -303,7 +301,7 @@
     border-radius: 50%;
   }
 
->>>>>>> tan
+
   /*===== ABOUT =====*/
   .about {
     display: flex;
