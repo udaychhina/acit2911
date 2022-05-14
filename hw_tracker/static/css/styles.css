@@ -3,10 +3,16 @@
     box-sizing: border-box;
 }
 
+:root {
+    --background-color-app: #F5F5F5;
+    --even-table-row: #dddddd;
+    --odd-table-row: #edeef1;
+}
+
 body {
     width: 100%;
     font-family: 'Inter', sans-serif;
-    background-color: #F5F5F5;
+    background-color: var(--background-color-app);
     margin: 0;
     padding: 0;
     font-family: var(--body-font);
@@ -17,10 +23,10 @@ body {
 header {
     display: flex;
     justify-content: flex-end;
-    
     align-items: center;
     padding: 18px 10%;
-    background-color: #F5F5F5;
+    background-color: var(--background-color-app);
+    height: 7em;
 }
 
 h1 {
@@ -34,14 +40,8 @@ table {
     border-collapse: collapse;
 }
 
-.header_fixed {
-    max-height: 100vh;
-    width: 100%;
-    /*https://www.w3schools.com/cssref/pr_pos_overflow.asp*/
-    overflow: auto;
-}
 
-.header_fixed thead th {
+thead th {
     /*https://www.w3schools.com/css/css_positioning.asp*/
     position: sticky;
     top: 0;
@@ -55,15 +55,16 @@ td {
     border-bottom: 1px solid #dddddd;
     padding: 10px 20px;
     font-size: 20px;
+    text-align: center;
 }
 
 /*https://www.w3schools.com/cssref/sel_nth-child.asp*/
 tr:nth-child(even) {
-    background-color: #dddddd;
+    background-color: var(--even-table-row);
 }
 
 tr:nth-child(odd) {
-    background-color: #edeef1;
+    background-color: var(--odd-table-row);
 }
 
 /*https://www.w3schools.com/cssref/sel_hover.asp*/
@@ -146,7 +147,7 @@ a.button {
 /*===== FORM =====*/
 
 :root {
-    /*===== Colores =====*/
+    /*===== Colors =====*/
     --first-color: #1A73E8;
     --input-color: #80868B;
     --border-color: #DADCE0;
@@ -201,7 +202,7 @@ a.button {
     left: 1rem;
     top: 1rem;
     padding: 0 .25rem;
-    background-color: #F5F5F5;
+    background-color: var(--background-color-app);
     color: var(--input-color);
     font-size: var(--normal-font-size);
     transition: .3s;
@@ -214,7 +215,7 @@ a.button {
     outline: none;
     border: none;
     background-color: var(--first-color);
-    color: #fff;
+    color: rgb(202, 0, 0);
     font-size: var(--normal-font-size);
     border-radius: .5rem;
     cursor: pointer;
@@ -300,9 +301,13 @@ a.button {
     margin-bottom: 12vh;
 }
 
+/* FLASH ERROR MESSAGES */
+
 .flash {
     width: 100%;
     padding: 1em;
     background: rgb(251, 102, 102);
     color: black;
+    text-align: center;
+    font-weight: bold;
 }

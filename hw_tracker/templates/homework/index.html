@@ -6,6 +6,7 @@
 
 <div class="header_fixed">
     {% include 'header.html' %}
+</div>
     <table>
         <thead>
             <tr>
@@ -13,6 +14,7 @@
                 <th>Type</th>
                 <th>Description</th>
                 <th>Deadline</th>
+                <th>Added By</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -23,13 +25,14 @@
                 <td>{{ homework['typehw'] }}</td>
                 <td>{{ homework['desc'] }}</td>
                 <td>{{ homework['duedate'] }}</td>
+                <td>{{ homework['username'] }}</td>
                 <td>
-                    <div class="button-container">
-                        {% if g.user %}
+                    <div>
+                        {% if g.user['id'] == homework['author_id'] %}
                         <a href=" {{ url_for('homework.update', id=homework['id']) }} " class="button button-1">Edit</a>
                         <a href=" {{ url_for('homework.delete', id=homework['id']) }} " class="button button-2">Delete</a>
                         {% else %}
-                        <a href=" {{ url_for('auth.login') }}" class="button button-4">Login for Action</a>
+                        <a href=" {{ url_for('auth.login') }}" class="button button-4">Login</a> to edit or delete.
                         {% endif %}
                     </div>
                 </td>
@@ -37,5 +40,5 @@
             {% endfor %}
         </tbody>
     </table>
-</div>
+
 {% endblock %}

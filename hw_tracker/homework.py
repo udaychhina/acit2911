@@ -11,7 +11,7 @@ bp = Blueprint('homework', __name__)
 def index():
     db = get_db()
     hw_items = db.execute(
-        'SELECT hw.id, course, name, typehw, desc, duedate, completed, author_id'
+        'SELECT hw.id, course, name, typehw, desc, duedate, completed, author_id, u.username'
         '   FROM hw JOIN user u on hw.author_id = u.id'
     ).fetchall()
     return render_template('homework/index.html', hw_items=hw_items)
