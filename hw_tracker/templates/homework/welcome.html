@@ -3,11 +3,17 @@
 {% block title %} Create {% endblock %}
 
 {% block body %}
-<div class="header_fixed">
-    {% include 'header.html' %}
-</div>
+{% include 'header.html' %}
+<!-- <div class="welcome">
+    
+</div> -->
 <div class="about">
     <div class="abt_main">
+        <h1 class="abt_title">Hello and welcome to our web application.</h1>
+        <div class="abt_p">Please find the buttons to access your assignments in the top right corner. Please adjust your settings below:</div>
+        <div class=" space button-container">
+            <a href="/settings" class="button button-3">Settings</a>
+        </div>
         <h1 class="abt_title">About This Project</h1>
         <div class="abt_p">
             This Homework Tracker App is an ACIT2911 Agile Development
@@ -39,3 +45,4 @@
         </div>
     </div>
 </div>
+{% endblock %}

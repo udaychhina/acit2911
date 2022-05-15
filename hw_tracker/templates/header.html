@@ -10,11 +10,15 @@
     {% endif %}
     {% endfor %}
 <header>
-    <h1>Homework Tracker</h1>
+    <h1><a href="/index" class="">Homework Tracker</a></h1>
     <div class="navbar-btn-container">
         {% if g.user %}
-        <a href="/" class="button button-4">Home</a>
+        {% if request.path != '/' %}
+        {% if request.path != '/about' %}
         <a href="/about" class="button button-5">About</a>
+        {% endif %}
+        {% endif %}
+        <a href="/index" class="button button-6">Home</a>
         <a href="/create" class="button button-3">Create</a>
         <a href="{{ url_for('auth.logout') }}" class="button button-4">Log Out</a>
         {% else %}

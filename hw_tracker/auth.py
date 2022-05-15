@@ -16,6 +16,13 @@ def register():
         password = request.form['password']
         db = get_db()
         error = None
+        # COMMENT OUT DURING DEVELOPMENT
+        special_sym = ['!', '@', '#', '$', '%', '&', '*', '(', ')']
+        if len(password) < 8 or not any(char in special_sym for char in password) or not any(char.isupper() for char in password):
+            error = "Password needs to be 8 characters or more, and have atleast one special character and one uppercase letter."
+
+        if len(username) < 8:
+            error = "Username must be 8 characters long."
 
         if not username:
             error = 'Username is required.'
@@ -58,7 +65,7 @@ def login():
         if error is None:
             session.clear()
             session['user_id'] = user['id']
-            return redirect(url_for('index'))
+            return redirect(url_for('homework.index'))
 
         flash(error)
 
@@ -80,7 +87,7 @@ def load_logged_in_user():
 @bp.route('/logout')
 def logout():
     session.clear()
-    return redirect(url_for('index'))
+    return redirect(url_for('homework.welcome'))
 
 
 def login_required(view):

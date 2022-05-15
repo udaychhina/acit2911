@@ -4,32 +4,35 @@
 
 {% block body %}
 
-<div class="header_fixed">
-    {% include 'header.html' %}
-</div>
+{% include 'header.html' %}
 <div class="l-form">
-    <form method="post" class="form"  >
+    <form method="post" class="form">
         <h1 class="form__title">Edit Deadline</h1>
         <div class="form__div">
-            <input type="text" name="course" class="form__input" placeholder=" " / value="{{ request.form['course'] or hw['course'] }}">
+            <input type="text" name="course" class="form__input" placeholder=" " /
+                value="{{ request.form['course'] or hw['course'] }}">
             <label for="" class="form__label">Course</label>
         </div>
         <div class="form__div">
-            <input type="text" name="name" placeholder=" " class="form__input" / value="{{ request.form['name'] or hw['name'] }}">
+            <input type="text" name="name" placeholder=" " class="form__input" /
+                value="{{ request.form['name'] or hw['name'] }}">
             <label for="" class="form__label">Name of Assignment</label>
         </div>
         <div class="form__div">
-            <input type="text" name="type" placeholder=" " class="form__input" / value="{{ request.form['typehw'] or hw['typehw'] }}">
+            <input type="text" name="type" placeholder=" " class="form__input" /
+                value="{{ request.form['typehw'] or hw['typehw'] }}">
             <label for="" class="form__label">Type of Assignment</label>
         </div>
         <div class="form__div">
-            <input type="text" name="description" placeholder=" " class="form__input" / value="{{ request.form['desc'] or hw['desc'] }}">
+            <input type="text" name="description" placeholder=" " class="form__input" /
+                value="{{ request.form['desc'] or hw['desc'] }}">
             <label for="" class="form__label">Description</label>
-        </div>  
+        </div>
         <div class="form__div">
-            <input type="text" name="duedate" placeholder=" " class="form__input" / value="{{ request.form['duedate'] or hw['duedate'] }}">
+            <input type="text" name="duedate" placeholder=" " class="form__input" /
+                value="{{ request.form['duedate'] or hw['duedate'] }}">
             <label for="" class="form__label">Due Date</label>
-        </div>  
+        </div>
         <input type="submit" value="Save" class="button button-4" />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <a href="/" class="button button-2">Cancel</a>

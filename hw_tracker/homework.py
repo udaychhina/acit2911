@@ -8,12 +8,17 @@ from hw_tracker.db import get_db
 bp = Blueprint('homework', __name__)
 
 @bp.route('/')
+def welcome():
+    return render_template('homework/welcome.html')
+
+@bp.route('/index')
 def index():
     db = get_db()
     hw_items = db.execute(
         'SELECT hw.id, course, name, typehw, desc, duedate, completed, author_id, u.username'
         '   FROM hw JOIN user u on hw.author_id = u.id'
     ).fetchall()
+    print(hw_items[0])
     return render_template('homework/index.html', hw_items=hw_items)
 
 @bp.route('/create', methods=('POST', 'GET'))
@@ -40,7 +45,7 @@ def create():
                 (course, name, type, desc, dd, 'no', g.user['id'])
             )
             db.commit()
-            return redirect(url_for('homework.index'))
+            return redirect(url_for('homework.confirmation'))
 
     return render_template('homework/create.html')
 
@@ -99,4 +104,23 @@ def delete(id):
     db = get_db()
     db.execute('DELETE FROM hw WHERE id = ?', (id,))
     db.commit()
-    return redirect(url_for('homework.index'))
+    return redirect(url_for('homework.deleteconfirm'))
+
+
+@bp.route('/about')
+def about():
+    return render_template('homework/welcome.html')
+
+
+@bp.route('/settings')
+def settings():
+    return render_template('homework/settings.html')
+
+@bp.route('/confirmation')
+def confirmation():
+    return render_template('homework/confirmation.html')
+
+
+@bp.route('/deleteconfirm')
+def deleteconfirm():
+    return render_template('homework/deleteconfirm.html')

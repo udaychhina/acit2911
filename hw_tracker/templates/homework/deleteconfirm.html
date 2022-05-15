@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %} Create {% endblock %}
+
+{% block body %}
+
+{% include 'header.html' %}
+<div class="confirm_div">
+    <div class="del_confirm_box">
+        <img src="{{url_for('static', filename='delete.png')}}" />
+        <h1>Delete Confirmation</h1>
+        <p>The selected deadline has been deleted! <br>
+            You can now return to the homepage.</p>
+        <a href="/index" class="button button-2">Take me back to homepage</a>
+    </div>
+</div>
+
+{% endblock %}

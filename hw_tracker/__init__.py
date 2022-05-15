@@ -34,6 +34,7 @@ def create_app(test_config=None):
 
     from . import homework
     app.register_blueprint(homework.bp)
-    app.add_url_rule('/', endpoint='index')
+
+    # app.add_url_rule('/', endpoint='welcome')
 
     return app
