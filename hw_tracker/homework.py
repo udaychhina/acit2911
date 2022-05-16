@@ -124,10 +124,10 @@ def confirmation():
 def deleteconfirm():
     return render_template('homework/deleteconfirm.html')
 
-@bp.route('/toggle-theme')
+
+@bp.route('/toggle_theme')
 def toggle_theme():
     current_theme = session.get('theme')
-    print(current_theme)
     if current_theme == 'dark':
         session['theme'] = 'light'
     else:

@@ -66,16 +66,16 @@
     --body-font: 'Inter', sans-serif;
     --normal-font-size: 1rem;
     --small-font-size: .75rem;
-    --button-light-orange: #f0ad4e;
-    --button-dark-orange: #ff9100;
-    --button-light-red: #d9534f;
-    --button-dark-red: #ff0800;
-    --button-light-green: #0bd80b;
-    --button-dark-green: #5cb85c;
-    --button-dark-blue: #0275d8;
-    --button-light-blue: #0088ff;
-    --button-light-grey: #3e4244;
-    --button-dark-grey: #1a1b1b;
+    --button-light-orange: #d4cd69;
+    --button-dark-orange: #FFF89A;
+    --button-light-red: #ff6961;
+    --button-dark-red: #ff5047;
+    --button-light-green: #C1E1C1;
+    --button-dark-green: #89e089;
+    --button-dark-blue: #AAFFFE;
+    --button-light-blue: #5ebdbb;
+    --button-light-grey: #CE9DD9;
+    --button-dark-grey: #ae5fc0;
     
     /* Flash warnings abkcground color */
     --flash-warning-red: #CF6679;
