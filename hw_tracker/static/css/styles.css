@@ -3,7 +3,7 @@
     box-sizing: border-box;
 }
 
-:root {
+:root.light-mode {
     --background-color-app: #F5F5F5;
     /* TABLE COLORS */
     --even-table-row: #dddddd;
@@ -46,7 +46,7 @@
     --calendar-picker-invert: invert(0.0);
 }
 
-:root.dark-mode {
+:root {
     --background-color-app: #121212;
     /* TABLE COLORS */
     --even-table-row: #1f1f1f;
@@ -110,7 +110,7 @@ header {
     padding: 18px;
     background-color: var(--background-color-app);
     height: 15vh;
-    width: 80%;
+    /* width: 80%; */
     margin-left: auto;
     margin-right: auto;
 }
@@ -121,7 +121,7 @@ h1 {
 
 /*Table*/
 table {
-    width: 80%;
+    width: 100%;
     /*https://www.w3schools.com/cssref/pr_border-collapse.asp*/
     border-collapse: collapse;
     margin-left: auto;

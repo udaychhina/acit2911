@@ -22,7 +22,7 @@ def register():
             error = "Password needs to be 8 characters or more, and have atleast one special character and one uppercase letter."
 
         if len(username) < 8:
-            error = "Username must be 8 characters long."
+            error = "Username must be 8 characters or longer."
 
         if not username:
             error = 'Username is required.'
