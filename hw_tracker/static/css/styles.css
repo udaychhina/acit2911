@@ -5,8 +5,89 @@
 
 :root {
     --background-color-app: #F5F5F5;
+    /* TABLE COLORS */
     --even-table-row: #dddddd;
     --odd-table-row: #edeef1;
+    --th-bgcolor: #000;
+    --th-font-color: #fff;
+
+    /* Font colors  */
+    --light: #fff;
+    --dark: #000;
+
+    /* Button colors  */
+    --input-field-border: #1A73E8;
+    --input-color: #80868B;
+    --border-color: #DADCE0;
+    --body-font: 'Inter', sans-serif;
+    --normal-font-size: 1rem;
+    --small-font-size: .75rem;
+    --button-light-orange: #f0ad4e;
+    --button-dark-orange: #ff9100;
+    --button-light-red: #d9534f;
+    --button-dark-red: #ff0800;
+    --button-light-green: #0bd80b;
+    --button-dark-green: #5cb85c;
+    --button-dark-blue: #0275d8;
+    --button-light-blue: #0088ff;
+    --button-light-grey: #3e4244;
+    --button-dark-grey: #1a1b1b;
+    
+    /* Flash warnings abkcground color */
+    --flash-warning-red: rgb(251, 102, 102);
+
+    /* Confirmation page shadows */
+    --light-shadow: ;
+    --dark-shadow: ;
+
+    /* Form colors  */
+    --input-field: white;
+    --input-font: black;
+    --calendar-picker-invert: invert(0.0);
+}
+
+:root.dark-mode {
+    --background-color-app: #121212;
+    /* TABLE COLORS */
+    --even-table-row: #1f1f1f;
+    --odd-table-row: #131313;
+    --th-bgcolor: #000;
+    --border-color: #000;
+    --th-font-color: #fff;
+
+
+    /* Font colors  */
+    --light: #000;
+    --dark: #fff;
+
+    /* Button colors  */
+    --input-field-border: #fff;
+    --input-color: #80868B;
+    --body-font: 'Inter', sans-serif;
+    --normal-font-size: 1rem;
+    --small-font-size: .75rem;
+    --button-light-orange: #f0ad4e;
+    --button-dark-orange: #ff9100;
+    --button-light-red: #d9534f;
+    --button-dark-red: #ff0800;
+    --button-light-green: #0bd80b;
+    --button-dark-green: #5cb85c;
+    --button-dark-blue: #0275d8;
+    --button-light-blue: #0088ff;
+    --button-light-grey: #3e4244;
+    --button-dark-grey: #1a1b1b;
+    
+    /* Flash warnings abkcground color */
+    --flash-warning-red: #CF6679;
+
+    /* Confirmation page shadows */
+    --light-shadow: ;
+    --dark-shadow: ;
+
+    /* Form colors  */
+    --input-field: black;
+    --input-font: white;
+    --calendar-picker-invert: invert(0.9);
 }
 
 body {
@@ -17,7 +98,8 @@ body {
     padding: 0;
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
-    height: calc(100vh - 15vh);
+    height: 100vh;
+    color: var(--dark);
 }
 
 /*Header*/
@@ -25,9 +107,12 @@ header {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding: 18px 10%;
+    padding: 18px;
     background-color: var(--background-color-app);
     height: 15vh;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 h1 {
@@ -36,9 +121,11 @@ h1 {
 
 /*Table*/
 table {
-    width: 100%;
+    width: 80%;
     /*https://www.w3schools.com/cssref/pr_border-collapse.asp*/
     border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
@@ -46,14 +133,14 @@ thead th {
     /*https://www.w3schools.com/css/css_positioning.asp*/
     position: sticky;
     top: 0;
-    background-color: black;
-    color: #FFFFFF;
+    background-color: var(--th-bgcolor);
+    color: var(--th-font-color);
     font-size: 25px;
 }
 
 th,
 td {
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 1px solid var(--border-color);
     padding: 10px 20px;
     font-size: 20px;
     text-align: center;
@@ -72,7 +159,7 @@ tr:nth-child(odd) {
 tr:hover td {
     color: #44b478;
     cursor: pointer;
-    background-color: #ffffff;
+    background-color: var(--light);
 }
 
 /*Buttons*/
@@ -87,80 +174,65 @@ tr:hover td {
     border: none;
     padding: 7px 17px;
     border-radius: 20px;
-    color: #ffffff;
+    color: var(--light);
     display: inline-block;
+    font-size: medium;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 a {
     text-decoration: none;
-    color: black;
+    color: var(--dark);
 }
 
-a.button {
-    font-size: medium;
-    text-decoration: none;
-}
 
 .button-1 {
-    background-color: #f0ad4e;
+    background-color: var(--button-dark-orange);
     font-weight: bold;
 }
 
 .button-1:hover {
-    background-color: #ff9100;
+    background-color: var(--button-light-orange);
 }
 
 .button-2 {
-    background-color: #d9534f;
+    background-color: var(--button-light-red);
     font-weight: bold;
 }
 
 .button-2:hover {
-    background-color: #ff0800;
-}
-
-.navbar-btn-container {
-    gap: 2px;
+    background-color: var(--button-dark-red);
 }
 
 .button-3 {
-    background-color: #5cb85c;
+    background-color: var(--button-dark-green);
     font-weight: bold;
 }
 
 .button-3:hover {
-    background-color: #0bd80b;
+    background-color: var(--button-light-green);
 }
 
 .button-4 {
-    background-color: #0275d8;
+    background-color: var(--button-dark-blue);
     font-weight: bold;
 }
 
 .button-4:hover {
-    background-color: #0088ff;
+    background-color: var(--button-light-blue);
 }
 
 .button-5 {
-    background-color: #3e4244;
+    background-color: var(--button-light-grey);
     font-weight: bold;
 }
 
 .button-5:hover {
-    background-color: #1a1b1b;
+    background-color: var(--button-dark-grey);
 }
 
 /*===== FORM =====*/
-
-:root {
-    /*===== Colors =====*/
-    --first-color: #1A73E8;
-    --input-color: #80868B;
-    --border-color: #DADCE0;
-    --body-font: 'Inter', sans-serif;
-    --normal-font-size: 1rem;
-    --small-font-size: .75rem;
-}
 
 .l-form {
     display: flex;
@@ -201,6 +273,7 @@ a.button {
     padding: 1rem;
     background: none;
     z-index: 1;
+    color: var(--input-font);
 }
 
 .form__label {
@@ -220,7 +293,7 @@ a.button {
     padding: .75rem 2rem;
     outline: none;
     border: none;
-    background-color: var(--first-color);
+    background-color: var(--input-field-border);
     color: rgb(202, 0, 0);
     font-size: var(--normal-font-size);
     border-radius: .5rem;
@@ -236,7 +309,7 @@ a.button {
 .form__input:focus+.form__label {
     top: -.5rem;
     left: .8rem;
-    color: var(--first-color);
+    color: var(--input-field-border);
     font-size: var(--small-font-size);
     font-weight: 500;
     z-index: 10;
@@ -253,7 +326,13 @@ a.button {
 
 /*Input focus*/
 .form__input:focus {
-    border: 1.5px solid var(--first-color);
+    border: 1.5px solid var(--input-field-border);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    /* https://stackoverflow.com/questions/62162645/change-color-of-chromes-calendar-icon-in-html-date-input */
+    cursor: pointer;
+    filter: var(--calendar-picker-invert);
 }
 
 /*===== ABOUT =====*/
@@ -294,10 +373,6 @@ a.button {
 }
 
 /*Welcome page*/
-.button-6 {
-    background-color: rgb(224, 126, 46);
-    font-weight: bold;
-}
 
 .welcome {
     text-align: center;
@@ -314,7 +389,7 @@ a.button {
 .flash {
     width: 100%;
     padding: 1em;
-    background: rgb(251, 102, 102);
+    background: var(--flash-warning-red);
     color: black;
     text-align: center;
     font-weight: bold;

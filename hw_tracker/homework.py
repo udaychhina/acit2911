@@ -1,5 +1,5 @@
 from flask import (
-    Blueprint, flash, g, redirect, render_template, request, url_for
+    Blueprint, flash, g, redirect, session, render_template, request, url_for
 )
 from werkzeug.exceptions import abort
 from hw_tracker.auth import login_required
@@ -18,7 +18,6 @@ def index():
         'SELECT hw.id, course, name, typehw, desc, duedate, completed, author_id, u.username'
         '   FROM hw JOIN user u on hw.author_id = u.id'
     ).fetchall()
-    print(hw_items[0])
     return render_template('homework/index.html', hw_items=hw_items)
 
 @bp.route('/create', methods=('POST', 'GET'))
@@ -124,3 +123,14 @@ def confirmation():
 @bp.route('/deleteconfirm')
 def deleteconfirm():
     return render_template('homework/deleteconfirm.html')
+
+@bp.route('/toggle-theme')
+def toggle_theme():
+    current_theme = session.get('theme')
+    print(current_theme)
+    if current_theme == 'dark':
+        session['theme'] = 'light'
+    else:
+        session['theme'] = 'dark'
+
+    return redirect(url_for('homework.settings'))
