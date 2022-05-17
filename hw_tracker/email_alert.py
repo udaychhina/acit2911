@@ -7,9 +7,9 @@ import time
 
 from django.dispatch import receiver
 
-sender_email = "tannedstone@gmail.com"
-receiver_email = "urgod2k2@gmail.com"
-password = "..."
+sender_email = "downbread2911@gmail.com"
+receiver_email = "tanphamminh2002@gmail.com"
+password = "Homework2911"
 port = 587
 smtp_server = "smtp.gmail.com"
 message = """/
