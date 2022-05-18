@@ -7,7 +7,7 @@ from hw_tracker.db import get_db, init_db
 # https://flask.palletsprojects.com/en/2.1.x/tutorial/tests/
 
 
-with open(os.path.join(os.path.dirname(__file__), 'data.sql'), 'rb') as f:
+with open(os.path.join(os.path.dirname(__file__), 'datacorrect.sql'), 'rb') as f:
     _data_sql = f.read().decode('utf8')
 
 
@@ -44,7 +44,7 @@ class AuthActions(object):
     def __init__(self, client):
         self._client = client
 
-    def login(self, username='test', password='test'):
+    def login(self, username='testuser', password='T#stpass'):
         return self._client.post(
             '/auth/login',
             data={'username': username, 'password': password}

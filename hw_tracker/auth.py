@@ -22,7 +22,7 @@ def register():
             error = "Password needs to be 8 characters or more, and have atleast one special character and one uppercase letter."
 
         if len(username) < 8:
-            error = "Username must be 8 characters or longer."
+            error = "Username must be 8 characters or more."
 
         if not username:
             error = 'Username is required.'
@@ -92,9 +92,9 @@ def logout():
 def login_required(view):
     @functools.wraps(view)
     def wrapped_view(**kwargs):
-        if g.user is None:
+        if g.user is None: #pragma: no cover
             return redirect(url_for('auth.login'))
 
-        return view(**kwargs)
+        return view(**kwargs) #pragma: no cover
 
     return wrapped_view
