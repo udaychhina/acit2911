@@ -6,9 +6,9 @@ from hw_tracker.db import get_db
 def test_register(client, app):
     assert client.get('/auth/register').status_code == 200
     response = client.post(
-        '/auth/register', data={'username': 'testuser', 'password': 'TestP@a5s'}
+        '/auth/register', data={'username': 'testuser10', 'password': 'T#stpass'}
     )
-    assert response.headers["Location"] == "/auth/login"
+    assert response.headers["Location"] == '/auth/login'
 
     with app.app_context():
         assert get_db().execute(
@@ -19,7 +19,8 @@ def test_register(client, app):
 @pytest.mark.parametrize(('username', 'password', 'message'), (
     ('', '', b'Username is required.'),
     ('testuser', '', b'Password is required.'),
-    ('test', 'TestP@a5s', b'8 characters or longer'),
+    ('test', 'TestP@a5s', b'8 characters or more'),
+    ('testuser', 'T#stpass', b'already registered'),
 ))
 def test_register_validate_input(client, username, password, message):
     response = client.post(
@@ -31,18 +32,20 @@ def test_register_validate_input(client, username, password, message):
 
 def test_login(client, auth):
     assert client.get('/auth/login').status_code == 200
-    response = auth.login()
+    response = client.post(
+        '/auth/login', data={'username': 'testuser', 'password': 'T#stpass'}
+    )
     assert response.headers["Location"] == "/index"
 
     with client:
         client.get('/index')
         assert session['user_id'] == 1
-        assert g.user['username'] == 'test'
+        assert g.user['username'] == 'testuser'
 
 
 @pytest.mark.parametrize(('username', 'password', 'message'), (
-    ('', 'TestP@a5s', b'Incorrect username.'),
-    ('test', 'TESTPASS', b'Incorrect password.'),
+    ('', 'T#stpass', b'Incorrect username.'),
+    ('testuser', 'TESTPASS', b'Incorrect password.'),
 ))
 def test_login_validate_input(auth, username, password, message):
     response = auth.login(username, password)
