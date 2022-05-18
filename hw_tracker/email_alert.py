@@ -5,7 +5,7 @@ import ssl
 import datetime as dt
 import time
 
-from django.dispatch import receiver.
+from django.dispatch import receiver
 
 sender_email = "downbread2911@gmail.com"
 receiver_email = "tanphamminh2002@gmail.com"
