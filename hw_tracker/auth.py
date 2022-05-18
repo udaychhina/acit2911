@@ -17,7 +17,7 @@ def register():
         db = get_db()
         error = None
         # COMMENT OUT DURING DEVELOPMENT
-        special_sym = ['!', '@', '#', '$', '%', '&', '*', '(', ')']
+        special_sym = ['!', '@', '#', '$', '%', '&', '*', '(', ')', ',', '.', '/', ';', '-', '_']
         if len(password) < 8 or not any(char in special_sym for char in password) or not any(char.isupper() for char in password):
             error = "Password needs to be 8 characters or more, and have atleast one special character and one uppercase letter."
 
