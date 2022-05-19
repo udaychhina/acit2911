@@ -49,7 +49,7 @@ def test_delete(client, app):
         '/auth/login', data={'username': 'testuser', 'password': 'T#stpass'}
     )
     assert response.headers['Location'] == '/index'
-    assert client.get('/1/delete').status_code == 200
+    assert client.get('/1/delete').status_code == 302
 
     with app.app_context():
         db = get_db()
