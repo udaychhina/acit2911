@@ -1,1 +1,1 @@
-web: gunicorn python -m flask run
+web: gunicorn 'hw_tracker:create_app'
