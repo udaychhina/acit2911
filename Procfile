@@ -1,1 +1,1 @@
-web: gunicorn 'hw_tracker:create_app'
+web: gunicorn 'hw_tracker:__init__'
