@@ -4,7 +4,6 @@ from flask import (
 from werkzeug.exceptions import abort
 from hw_tracker.auth import login_required
 from hw_tracker.db import get_db
-from auth import auth
 
 bp = Blueprint('homework', __name__)
 
