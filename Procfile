@@ -1,2 +1,3 @@
-web: gunicorn app:hw_tracker
+web: gunicorn --bind 0.0.0.0:$PORT flaskapp:hw_tracker
+
 
