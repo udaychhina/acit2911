@@ -1,1 +1,1 @@
-web: gunicorn app: hw_tracker
+web: gunicorn hw_tracker: app
