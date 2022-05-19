@@ -1,3 +1,3 @@
-web: gunicorn wsgi:hw_tracker
+web: gunicorn wsgi:hw_tracker worker:auth friend:homework
 
 
