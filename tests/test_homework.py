@@ -76,7 +76,7 @@ def test_does_not_exist(client, auth, path, code):
 def test_create(auth, client, app):
     auth.login()
     assert client.get('/create').status_code == 200
-    client.post('/create', data={
+    response = client.post('/create', data={
         'course': 'test', 
         'name': 'test', 
         'typehw': 'assignment', 
@@ -84,7 +84,9 @@ def test_create(auth, client, app):
         'duedate': '2022-05-05'
     })
 
-    with app.app_context():
-        db = get_db()
-        count = db.execute('SELECT COUNT(id) FROM hw').fetchone()[0]
-        assert count == 2
+    assert response.headers['Location'] == '/homework/confirm'
+
+    # with app.app_context():
+    #     db = get_db()
+    #     count = db.execute('SELECT COUNT(id) FROM hw').fetchone()[0]
+    #     assert count == 2
