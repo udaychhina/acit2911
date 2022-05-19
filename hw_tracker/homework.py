@@ -47,7 +47,7 @@ def create():
                 (course, name, type, desc, dd, 'no', g.user['id'])
             )
             db.commit()
-            return redirect(url_for('homework.confirmation'))
+            return render_template('homework/confirmation.html'), 200
 
     return render_template('homework/create.html')
 
@@ -95,7 +95,11 @@ def update(id):
                 (course, name, type, desc, dd, 'no', id)
             )
             db.commit()
-            return redirect(url_for('homework.index'))
+            hw_items = db.execute(
+                'SELECT hw.id, course, name, typehw, desc, duedate, completed, author_id, u.username'
+                '   FROM hw JOIN user u on hw.author_id = u.id'
+            ).fetchall()
+            return render_template('homework/index.html', hw_items=hw_items)
 
     return render_template('homework/update.html', hw=hw)
 
@@ -107,7 +111,7 @@ def delete(id):
     db = get_db()
     db.execute('DELETE FROM hw WHERE id = ?', (id,))
     db.commit()
-    return redirect(url_for('homework.deleteconfirm'))
+    return render_template('homework/deleteconfirm.html')
 
 
 @bp.route('/about')

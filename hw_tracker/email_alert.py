@@ -13,8 +13,8 @@ password = "Homework2911"
 port = 587
 smtp_server = "smtp.gmail.com"
 message = """/
-Subject: Trail mail via Python
-Hello! Welcome to my channel UrGOD."""
+Subject: Trail mail via Python         
+Hello! Welcome to my channel UrGOD."""  # Homework title and description
 
 context = ssl.create_default_context()
 with smtplib.SMTP(smtp_server, port) as email:
@@ -22,7 +22,7 @@ with smtplib.SMTP(smtp_server, port) as email:
     email.starttls(context=context)
 
     email.login(sender_email, password)
-    send_time = dt.datetime(2022, 5, 17, 12, 35, 0)
+    send_time = dt.datetime(2022, 5, 17, 12, 35, 0)  # Homework duedate
     print(send_time.timestamp())
     print(time.time())
     x = time.sleep(send_time.timestamp()-time.time())
