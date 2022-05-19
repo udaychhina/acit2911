@@ -1,2 +1,2 @@
-web: gunicorn hw_tracker.__init__:app
+web: waitress hw_tracker.__init__:app
 
