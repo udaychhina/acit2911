@@ -1,1 +1,1 @@
-web: gunicorn hw_tracker: app
+web: python -m flask run
