@@ -102,7 +102,7 @@ def update(id):
 
 @bp.route('/<int:id>/email', methods=('POST', 'GET'))
 @login_required
-def email(id):
+def email(id):  # pragma: no cover
     hw = get_hw(id)
     if request.method == 'POST':
         email = request.form.get("email")
