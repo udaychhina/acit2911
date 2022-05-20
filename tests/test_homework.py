@@ -47,7 +47,7 @@ def test_delete(client, app):
         assert hw is None
 
 
-@pytest.mark.parametrize('path',(
+@pytest.mark.parametrize('path', (
     '/create',
     '/1/update',
 ))
@@ -62,9 +62,10 @@ def test_update(client, auth, app):
     # )
     auth.login()
     assert client.get('/1/update').status_code == 200
-    assert client.post('/1/update', data={'course': 'updated', 'name': 'test', 'typehw': 'assignment', 'desc': 'testtheassignment', 'duedate': '2022-05-05'}).status_code == 200
+    assert client.post('/1/update', data={'course': 'updated', 'name': 'test', 'typehw': 'assignment',
+                       'desc': 'testtheassignment', 'duedate': '2022-05-05'}).status_code == 200
 
-    
+
 @pytest.mark.parametrize(('path', 'code'), (
     ('/2/update', 404),
     ('/2/delete', 405),
@@ -73,18 +74,26 @@ def test_does_not_exist(client, auth, path, code):
     auth.login()
     assert client.post(path).status_code == code
 
+
 def test_create(auth, client, app):
     auth.login()
     assert client.get('/create').status_code == 200
     response = client.post('/create', data={
-        'course': 'test', 
-        'name': 'test', 
-        'typehw': 'assignment', 
-        'desc': 'testtheassignment', 
+        'course': 'test',
+        'name': 'test',
+        'typehw': 'assignment',
+        'desc': 'testtheassignment',
         'duedate': '2022-05-05'
     })
 
-    assert response.headers['Location'] == '/homework/confirm'
+    with app.app_context():
+        db = get_db()
+        count = db.execute('SELECT COUNT(id) FROM hw').fetchone()[0]
+        assert count == 1
+        hw = db.execute('SELECT * FROM hw WHERE id = 1').fetchone()
+        assert hw['course'] == 'test'
+
+    #assert response.headers['Location'] == '/homework/create'
 
     # with app.app_context():
     #     db = get_db()

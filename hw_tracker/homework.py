@@ -7,9 +7,11 @@ from hw_tracker.db import get_db
 
 bp = Blueprint('homework', __name__)
 
+
 @bp.route('/')
 def welcome():
     return render_template('homework/welcome.html')
+
 
 @bp.route('/index')
 def index():
@@ -20,10 +22,11 @@ def index():
     ).fetchall()
     return render_template('homework/index.html', hw_items=hw_items)
 
+
 @bp.route('/create', methods=('POST', 'GET'))
 @login_required
 def create():
-    if request.method =='POST':
+    if request.method == 'POST':
         course = request.form.get("course")
         name = request.form.get("name")
         type = request.form.get("type")
@@ -44,7 +47,7 @@ def create():
                 (course, name, type, desc, dd, 'no', g.user['id'])
             )
             db.commit()
-            return redirect(url_for('homework.confirmation'))
+            return render_template('homework/confirmation.html')
 
     return render_template('homework/create.html')
 
@@ -64,6 +67,7 @@ def get_hw(id, check_author=True):
         abort(403)
 
     return hw
+
 
 @bp.route('/<int:id>/update', methods=('POST', 'GET'))
 @login_required
@@ -92,9 +96,9 @@ def update(id):
             )
             db.commit()
             return redirect(url_for('homework.index'))
-    
+
     return render_template('homework/update.html', hw=hw)
-        
+
 
 @bp.route('/<int:id>/delete')
 @login_required
@@ -114,6 +118,7 @@ def about():
 @bp.route('/settings')
 def settings():
     return render_template('homework/settings.html')
+
 
 @bp.route('/confirmation')
 def confirmation():
