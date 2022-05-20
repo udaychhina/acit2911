@@ -207,6 +207,7 @@ a {
 
 .button-3 {
     background-color: var(--button-dark-green);
+    margin-top: 5px;
     font-weight: bold;
 }
 

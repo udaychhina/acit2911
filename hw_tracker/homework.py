@@ -100,6 +100,22 @@ def update(id):
     return render_template('homework/update.html', hw=hw)
 
 
+@bp.route('/<int:id>/email', methods=('POST', 'GET'))
+@login_required
+def email(id):
+    hw = get_hw(id)
+    if request.method == 'POST':
+        email = request.form.get("email")
+        error = None
+        if not email:
+            error = 'Please enter all fields'
+        if error is not None:
+            flash(error)
+        else:
+            db = get_db()
+    return render_template('homework/email.html')
+
+
 @bp.route('/<int:id>/delete')
 @login_required
 def delete(id):
