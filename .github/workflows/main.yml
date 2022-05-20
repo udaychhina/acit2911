@@ -39,4 +39,4 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
       - name: Unit tests
-        run: pytest appTest.py -v --cov
+        run: coverage run -m pytest
