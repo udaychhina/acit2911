@@ -1,1 +1,1 @@
-web: flask db upgrade; gunicorn hw_tracker:create_app
+web: gunicorn runner:app
