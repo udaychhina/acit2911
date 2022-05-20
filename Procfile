@@ -1,1 +1,2 @@
-web: gunicorn 'hw_tracker:create_app'
+web: gunicorn runner:app
+init: flask init-db
