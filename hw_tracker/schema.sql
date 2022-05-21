@@ -16,3 +16,9 @@ CREATE TABLE hw (
     completed BOOLEAN NOT NULL,
     FOREIGN KEY (author_id) REFERENCES user(id)
 );
+CREATE TABLE email_list (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    author_id INTEGER NOT NULL,
+    [email_address] TEXT NOT NULL,
+    FOREIGN KEY (author_id) REFERENCES user(id)
+);

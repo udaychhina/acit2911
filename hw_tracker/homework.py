@@ -4,8 +4,8 @@ from flask import (
 from werkzeug.exceptions import abort
 from hw_tracker.auth import login_required
 from hw_tracker.db import get_db
-from hw_tracker.email_alert import email_send
-from datetime import date
+from hw_tracker.email_alert import email_alert
+from datetime import date, datetime
 import urllib.parse
 
 bp = Blueprint('homework', __name__)
@@ -107,30 +107,30 @@ def update(id):
 @login_required
 def email(id):  # pragma: no cover
     hw = get_db().execute(
-        'SELECT hw.duedate, author_id'
+        'SELECT hw.duedate, course, desc, author_id, u.username'
         '   FROM hw JOIN user u on hw.author_id = u.id'
         '   WHERE hw.id = ?',
         (id,)
-    ).fetchone()[0]
+    ).fetchone()
 
     if request.method == 'POST':
-        email_form = request.form.get("email_address")
+        email_address = request.form.get("email_address")
         error = None
-        if not email_form:
-            error = email_form
+        if not email_address:
+            error = "PLease gg"
         if error is not None:
             flash(error)
         else:
-            #y_str, m_str, d_str = str(hw['duedate']).split('-')
+            y_str, m_str, d_str = hw[0].split('-')
             #email_address = str(email_form).replace('%40', '@')
-            y = int(hw.year)
-            m = int(hw.month)
-            d = int(hw.day) - 1
-            """
-            y = int(str(hw['duedate'].year))
-            m = int(str(hw['duedate'].month))
-            d = int(str(hw['duedate'].day))-1"""
-            email_send(email_form, y, m, d)
+            #y = int(hw['duedate'].strftime("%Y"))
+            #m = int(hw['duedate'].strftime("%B"))
+            #d = int(hw['duedate'].strftime("%d")) - 1
+
+            y = int(y_str)
+            m = int(m_str)
+            d = int(d_str)-1
+            email_alert(hw[1], hw[2], email_address)
             return redirect(url_for('homework.emailconfirm'))
     return render_template('homework/email.html')
 

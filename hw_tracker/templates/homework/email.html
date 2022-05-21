@@ -1,22 +1,22 @@
-{% extends 'base.html' %}
-
-{% block title %} Email {% endblock %}
-
-{% block body %}
-
-{% include 'header.html' %}
+{% extends 'base.html' %} {% block title %} Email {% endblock %} {% block body
+%} {% include 'header.html' %}
 <div class="l-form">
-    <form method="post" class="form">
-        <h1 class="form__title">Send Email Nofitication</h1>
-        <div class="form__div">
-            <input type="text" name="username" placeholder=" " class="form__input" /
-                value="{{ request.form['email_address']}}">
-            <label for="" class="form__label">Email Address</label>
-        </div>
-        <input type="submit" value="Send" class="button button-4" />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="/" class="button button-2">Cancel</a>
-    </form>
+  <form method="post" class="form">
+    <h1 class="form__title">Send Email Nofitication</h1>
+    <div class="form__div">
+      <input
+        type="text"
+        name="email_address"
+        placeholder=" "
+        class="form__input"
+        value="{{ request.form['email_address']}}"
+      />
+      <label for="" class="form__label">Email Address</label>
+    </div>
+    <input type="submit" value="Send" class="button button-4" />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="/" class="button button-2">Cancel</a>
+  </form>
 </div>
 
 {% endblock %}
