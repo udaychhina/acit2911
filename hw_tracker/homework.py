@@ -4,9 +4,10 @@ from flask import (
 from werkzeug.exceptions import abort
 from hw_tracker.auth import login_required
 from hw_tracker.db import get_db
-from hw_tracker.email_alert import email_alert
+from hw_tracker.email_alert import email_alert, schedule
 from datetime import date, datetime
 import urllib.parse
+
 
 bp = Blueprint('homework', __name__)
 
@@ -116,8 +117,9 @@ def email(id):  # pragma: no cover
     if request.method == 'POST':
         email_address = request.form.get("email_address")
         error = None
+
         if not email_address:
-            error = "PLease gg"
+            error = "Please oi bye."
         if error is not None:
             flash(error)
         else:
@@ -129,9 +131,9 @@ def email(id):  # pragma: no cover
 
             y = int(y_str)
             m = int(m_str)
-            d = int(d_str)-1
-            email_alert(hw[1], hw[2], email_address)
-
+            d = int(d_str)  # -1
+            # asyncio.run()
+            schedule(hw[1], hw[2], email_address, y_str, m_str, d_str)
             # Update the database
             db = get_db()
             db.execute(
