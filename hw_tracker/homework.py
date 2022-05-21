@@ -4,6 +4,9 @@ from flask import (
 from werkzeug.exceptions import abort
 from hw_tracker.auth import login_required
 from hw_tracker.db import get_db
+from hw_tracker.email_alert import email_send
+from datetime import date
+import urllib.parse
 
 bp = Blueprint('homework', __name__)
 
@@ -103,16 +106,32 @@ def update(id):
 @bp.route('/<int:id>/email', methods=('POST', 'GET'))
 @login_required
 def email(id):  # pragma: no cover
-    hw = get_hw(id)
+    hw = get_db().execute(
+        'SELECT hw.duedate, author_id'
+        '   FROM hw JOIN user u on hw.author_id = u.id'
+        '   WHERE hw.id = ?',
+        (id,)
+    ).fetchone()[0]
+
     if request.method == 'POST':
-        email = request.form.get("email")
+        email_form = request.form.get("email_address")
         error = None
-        if not email:
-            error = 'Please enter all fields'
+        if not email_form:
+            error = email_form
         if error is not None:
             flash(error)
         else:
-            db = get_db()
+            #y_str, m_str, d_str = str(hw['duedate']).split('-')
+            #email_address = str(email_form).replace('%40', '@')
+            y = int(hw.year)
+            m = int(hw.month)
+            d = int(hw.day) - 1
+            """
+            y = int(str(hw['duedate'].year))
+            m = int(str(hw['duedate'].month))
+            d = int(str(hw['duedate'].day))-1"""
+            email_send(email_form, y, m, d)
+            return redirect(url_for('homework.emailconfirm'))
     return render_template('homework/email.html')
 
 
@@ -139,6 +158,11 @@ def settings():
 @bp.route('/confirmation')
 def confirmation():
     return render_template('homework/confirmation.html')
+
+
+@bp.route('/emailconfirm')
+def emailconfirm():
+    return render_template('homework/emailconfirm.html')
 
 
 @bp.route('/deleteconfirm')

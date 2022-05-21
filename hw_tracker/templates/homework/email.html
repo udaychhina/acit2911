@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %} Edit {% endblock %}
+{% block title %} Email {% endblock %}
 
 {% block body %}
 
@@ -9,8 +9,8 @@
     <form method="post" class="form">
         <h1 class="form__title">Send Email Nofitication</h1>
         <div class="form__div">
-            <input type="text" name="email" placeholder=" " class="form__input" /
-                value="{{ request.form['email']}}">
+            <input type="text" name="username" placeholder=" " class="form__input" /
+                value="{{ request.form['email_address']}}">
             <label for="" class="form__label">Email Address</label>
         </div>
         <input type="submit" value="Send" class="button button-4" />
