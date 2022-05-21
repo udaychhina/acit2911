@@ -124,15 +124,8 @@ def email(id):  # pragma: no cover
             flash(error)
         else:
             y_str, m_str, d_str = hw[0].split('-')
-            #email_address = str(email_form).replace('%40', '@')
-            #y = int(hw['duedate'].strftime("%Y"))
-            #m = int(hw['duedate'].strftime("%B"))
-            #d = int(hw['duedate'].strftime("%d")) - 1
-
-            y = int(y_str)
-            m = int(m_str)
-            d = int(d_str)  # -1
-            # asyncio.run()
+            d = int(d_str)-1
+            d_str = str(d)
             schedule(hw[1], hw[2], email_address, y_str, m_str, d_str)
             # Update the database
             db = get_db()
