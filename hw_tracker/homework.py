@@ -131,6 +131,15 @@ def email(id):  # pragma: no cover
             m = int(m_str)
             d = int(d_str)-1
             email_alert(hw[1], hw[2], email_address)
+
+            # Update the database
+            db = get_db()
+            db.execute(
+                'INSERT INTO email_list (email_address, author_id)'
+                '   VALUES (?, ?)',
+                (email_address, g.user['id'])
+            )
+            db.commit()
             return redirect(url_for('homework.emailconfirm'))
     return render_template('homework/email.html')
 
