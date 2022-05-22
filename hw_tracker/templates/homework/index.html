@@ -1,49 +1,58 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block title %} Home {% endblock %} {% block body %}
+{% include 'header.html' %}
+<table>
+  <thead>
+    <tr>
+      <th>Course</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Deadline</th>
+      <th>Added By</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- {% if g.user['id'] not in hw_items %} -->
+    {% for homework in hw_items %}
 
-{% block title %} Home {% endblock %}
+    <tr>
+      <td>{{ homework['course'] }}</td>
+      <td>{{ homework['typehw'] }}</td>
+      <td>{{ homework['desc'] }}</td>
+      <td>{{ homework['duedate'] }}</td>
+      <td>{{ homework['username'] }}</td>
+      <td>
+        <div>
+          {% if g.user['id'] == homework['author_id'] %}
+          <a
+            href=" {{ url_for('homework.update', id=homework['id']) }} "
+            class="button button-1"
+            >Edit</a
+          >
+          <a
+            href=" {{ url_for('homework.delete', id=homework['id']) }} "
+            class="button button-2"
+            >Delete</a
+          >
+          <a
+            href=" {{ url_for('homework.email', id=homework['id']) }} "
+            class="button button-email"
+            >@</a
+          >
+          {% else %}
+          <a href=" {{ url_for('auth.login') }}" class="button button-4"
+            >Login</a
+          >
+          to edit or delete. {% endif %}
+        </div>
+      </td>
+    </tr>
 
-{% block body %}
-
-    {% include 'header.html' %}
-    <table>
-        <thead>
-            <tr>
-                <th>Course</th>
-                <th>Type</th>
-                <th>Description</th>
-                <th>Deadline</th>
-                <th>Added By</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- {% if g.user['id'] not in hw_items %} -->
-                {% for homework in hw_items %}
-                
-                <tr>
-                    <td>{{ homework['course'] }}</td>
-                    <td>{{ homework['typehw'] }}</td>
-                    <td>{{ homework['desc'] }}</td>
-                    <td>{{ homework['duedate'] }}</td>
-                    <td>{{ homework['username'] }}</td>
-                    <td>
-                        <div>
-                            {% if g.user['id'] == homework['author_id'] %}
-                            <a href=" {{ url_for('homework.update', id=homework['id']) }} " class="button button-1">Edit</a>
-                            <a href=" {{ url_for('homework.delete', id=homework['id']) }} " class="button button-2">Delete</a>
-                            <a href=" {{ url_for('homework.email', id=homework['id']) }} " class="button button-3">Send Email</a>
-                            {% else %}
-                            <a href=" {{ url_for('auth.login') }}" class="button button-4">Login</a> to edit or delete.
-                            {% endif %}
-                        </div>
-                    </td>
-                </tr>
-                
-                {% endfor %}
-            <!-- {% else %}
+    {% endfor %}
+    <!-- {% else %}
                 <td colspan="6">You haven't added any homework items, create one: <a href="/create" class="button button-3">Create</a></td>
             {% endif %} -->
-        </tbody>
-    </table>
+  </tbody>
+</table>
 
 {% endblock %}
