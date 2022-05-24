@@ -74,8 +74,11 @@ def test_update(client, auth, app):
     assert client.get('/1/update').status_code == 200
     assert client.post('/1/update', data={'course': 'updated', 'name': 'test', 'typehw': 'assignment',
                        'desc': 'testtheassignment', 'duedate': '2022-05-05'}).status_code == 200
+<<<<<<< HEAD
     response = client.get('/index')
     assert response.status_code == 200
+=======
+>>>>>>> 16ed09a9fd9385e46be7e8733066815ffd0e2851
 
 
 @pytest.mark.parametrize(('path', 'code'), (
@@ -90,7 +93,11 @@ def test_does_not_exist(client, auth, path, code):
 def test_create(auth, client, app):
     auth.login()
     assert client.get('/create').status_code == 200
+<<<<<<< HEAD
     assert client.post('/create', data={
+=======
+    response = client.post('/create', data={
+>>>>>>> 16ed09a9fd9385e46be7e8733066815ffd0e2851
         'course': 'test',
         'name': 'test',
         'typehw': 'assignment',
@@ -104,3 +111,13 @@ def test_create(auth, client, app):
         assert count == 1
         hw = db.execute('SELECT * FROM hw WHERE id = 1').fetchone()
         assert hw['course'] == 'test'
+<<<<<<< HEAD
+=======
+
+    #assert response.headers['Location'] == '/homework/create'
+
+    # with app.app_context():
+    #     db = get_db()
+    #     count = db.execute('SELECT COUNT(id) FROM hw').fetchone()[0]
+    #     assert count == 2
+>>>>>>> 16ed09a9fd9385e46be7e8733066815ffd0e2851

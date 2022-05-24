@@ -51,7 +51,7 @@ def create():
                 (course, name, type, desc, dd, 'no', g.user['id'])
             )
             db.commit()
-            return redirect(url_for('homework.confirmation'))
+            return render_template('homework/confirmation.html')
 
     return render_template('homework/create.html')
 
@@ -103,6 +103,7 @@ def update(id):
 
     return render_template('homework/update.html', hw=hw)
 
+<<<<<<< HEAD
 
 @bp.route('/<int:id>/email', methods=('POST', 'GET'))
 @login_required
@@ -138,6 +139,8 @@ def email(id):  # pragma: no cover
             return redirect(url_for('homework.emailconfirm'))
     return render_template('homework/email.html')
 
+=======
+>>>>>>> 16ed09a9fd9385e46be7e8733066815ffd0e2851
 
 @bp.route('/<int:id>/delete')
 @login_required
