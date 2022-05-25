@@ -106,7 +106,7 @@ def update(id):
 
 @bp.route('/<int:id>/email', methods=('POST', 'GET'))
 @login_required
-def email(id):  # pragma: no cover
+def email(id):
     hw = get_db().execute(
         'SELECT hw.duedate, course, desc, author_id, u.username'
         '   FROM hw JOIN user u on hw.author_id = u.id'
@@ -119,7 +119,7 @@ def email(id):  # pragma: no cover
         error = None
 
         if not email_address:
-            error = "Please oi bye."
+            error = "Please enter the required field."
         if error is not None:
             flash(error)
         else:
