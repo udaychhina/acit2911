@@ -5,7 +5,7 @@ from pyparsing import empty
 from werkzeug.exceptions import abort
 from hw_tracker.auth import login_required
 from hw_tracker.db import get_db
-from hw_tracker.email_alert import email_alert, schedule
+from hw_tracker.email_alert import schedule
 from datetime import date, datetime
 import urllib.parse
 
@@ -84,7 +84,7 @@ def create():
                 (course, name, type, desc, dd, 'no', g.user['id'])
             )
             db.commit()
-            return render_template('homework/confirmation.html')
+            return redirect(url_for('homework.confirmation'))
 
     return render_template('homework/create.html')
 
