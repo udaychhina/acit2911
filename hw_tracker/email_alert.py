@@ -5,7 +5,7 @@ import time
 from apscheduler.schedulers.background import BackgroundScheduler
 
 
-def email_alert(*args):
+def email_send(*args):
 
     subject = args[0]
     body = args[1]
@@ -29,7 +29,7 @@ def email_alert(*args):
 
 def schedule(course, desc, email_address, y, m, d):
     scheduler = BackgroundScheduler()
-    scheduler.add_job(func=email_alert,
+    scheduler.add_job(func=email_send,
                       trigger='cron',
                       year=y, month=m, day=d, hour=10, minute=10,  second=10, args=(course, desc, email_address))
     scheduler.start()

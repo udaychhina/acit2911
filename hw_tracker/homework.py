@@ -4,7 +4,7 @@ from flask import (
 from werkzeug.exceptions import abort
 from hw_tracker.auth import login_required
 from hw_tracker.db import get_db
-from hw_tracker.email_alert import email_alert, schedule
+from hw_tracker.email_alert import schedule
 from datetime import date, datetime
 import urllib.parse
 
