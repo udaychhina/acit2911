@@ -51,7 +51,7 @@ def create():
                 (course, name, type, desc, dd, 'no', g.user['id'])
             )
             db.commit()
-            return render_template('homework/confirmation.html')
+            return redirect(url_for('homework.confirmation'))
 
     return render_template('homework/create.html')
 
