@@ -39,6 +39,10 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
       - name: Unit tests
+<<<<<<< HEAD
         run: |
           coverage run -m pytest
           coverage report -m
+=======
+        run: coverage run -m pytest
+>>>>>>> email

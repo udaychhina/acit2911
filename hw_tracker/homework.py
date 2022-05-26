@@ -4,6 +4,10 @@ from flask import (
 from werkzeug.exceptions import abort
 from hw_tracker.auth import login_required
 from hw_tracker.db import get_db
+from hw_tracker.email_alert import email_alert, schedule
+from datetime import date, datetime
+import urllib.parse
+
 
 bp = Blueprint('homework', __name__)
 
@@ -99,6 +103,44 @@ def update(id):
 
     return render_template('homework/update.html', hw=hw)
 
+<<<<<<< HEAD
+=======
+
+@bp.route('/<int:id>/email', methods=('POST', 'GET'))
+@login_required
+def email(id):
+    hw = get_db().execute(
+        'SELECT hw.duedate, course, desc, author_id, u.username'
+        '   FROM hw JOIN user u on hw.author_id = u.id'
+        '   WHERE hw.id = ?',
+        (id,)
+    ).fetchone()
+
+    if request.method == 'POST':
+        email_address = request.form.get("email_address")
+        error = None
+
+        if not email_address:
+            error = "Please enter the required field."
+        if error is not None:
+            flash(error)
+        else:
+            y_str, m_str, d_str = hw[0].split('-')
+            d = int(d_str)-1
+            d_str = str(d)
+            schedule(hw[1], hw[2], email_address, y_str, m_str, d_str)
+            # Update the database
+            db = get_db()
+            db.execute(
+                'INSERT INTO email_list (email_address, author_id)'
+                '   VALUES (?, ?)',
+                (email_address, g.user['id'])
+            )
+            db.commit()
+            return redirect(url_for('homework.emailconfirm'))
+    return render_template('homework/email.html')
+
+>>>>>>> email
 
 @bp.route('/<int:id>/delete')
 @login_required
@@ -123,6 +165,11 @@ def settings():
 @bp.route('/confirmation')
 def confirmation():
     return render_template('homework/confirmation.html')
+
+
+@bp.route('/emailconfirm')
+def emailconfirm():
+    return render_template('homework/emailconfirm.html')
 
 
 @bp.route('/deleteconfirm')
