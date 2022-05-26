@@ -1,3 +1,4 @@
+from datetime import timedelta
 import os
 
 from flask import Flask
@@ -33,6 +34,8 @@ def create_app(test_config=None):
 
     from . import homework
     app.register_blueprint(homework.bp)
+
+    app.permanent_session_lifetime = timedelta(minutes=10)
 
     # app.add_url_rule('/', endpoint='welcome')
 
