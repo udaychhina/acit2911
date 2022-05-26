@@ -36,8 +36,8 @@ def search():
             hw_items = db.execute(
                 'SELECT hw.id, course, name, typehw, desc, duedate, completed, author_id, user.username'
                 '   FROM hw JOIN user ON hw.author_id = user.id'
-                '   WHERE course LIKE ? OR name LIKE ? OR typehw LIKE ? OR desc LIKE ?',
-                (f'%{search_term}%', f'%{search_term}%', f'%{search_term}%', f'%{search_term}%')
+                '   WHERE course LIKE ? OR name LIKE ? OR typehw LIKE ? OR desc LIKE ? OR user.username LIKE ?',
+                (f'%{search_term}%', f'%{search_term}%', f'%{search_term}%', f'%{search_term}%', f'%{search_term}%')
             ).fetchall()
 
             if hw_items is None:
