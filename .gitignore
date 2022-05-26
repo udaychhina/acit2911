@@ -9,6 +9,8 @@ __pycache__/
 htmlcov/
 instance/sqlite3.exe
 
+instance/sqlite3.exe
+
 dist/
 build/
 *.egg-info/
