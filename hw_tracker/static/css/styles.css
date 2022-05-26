@@ -207,10 +207,21 @@ a {
 
 .button-3 {
     background-color: var(--button-dark-green);
+    margin-top: 5px;
     font-weight: bold;
 }
 
 .button-3:hover {
+    background-color: var(--button-light-green);
+}
+
+.button-email {
+    background-color: var(--button-dark-green);
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.button-email:hover {
     background-color: var(--button-light-green);
 }
 
@@ -238,7 +249,14 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 85vh;
+}
+
+.email-l-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
 }
 
 .form {
@@ -252,6 +270,13 @@ a {
     font-weight: 400;
     margin-top: -1rem;
     margin-bottom: 3rem;
+}
+
+
+.email-form__title {
+    font-weight: 400;
+    margin-top: -1rem;
+    margin-bottom: 2rem;
 }
 
 .form__div {
@@ -454,3 +479,42 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     margin-top: -10px;
     border-radius: 50%;
   }
+
+  /* SEARCH BAR STYLING */
+  /* https://nikitahl.com/search-icon-inside-input */
+.search-bar {
+    font-size: var(--normal-font-size);
+    border: 1px solid var(--dark);
+    border-radius: 2rem;
+    outline: none;
+    padding: 1rem;
+    background: var(--light);
+    z-index: 1;
+    color: var(--input-font);
+    margin-right: 10px;
+    height: 10px;
+}
+
+.search {
+    /* align-items: center; */
+    height: 28px;
+}
+
+.search button[type="submit"] {
+    text-indent: -999px; /* push the submit text off screen */
+    overflow: hidden;
+    border: 1px solid transparent;
+    border-radius: inherit;
+    background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat center;
+    cursor: pointer;
+    opacity: 0.7;
+    position: relative;
+    right: 42px;
+    z-index: 10;
+    width: 18px;
+  }
+  
+.search button[type="submit"]:hover {
+    opacity: 1;
+  }
+

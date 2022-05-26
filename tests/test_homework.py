@@ -1,5 +1,16 @@
+from urllib import response
 import pytest
+import flask
+import sqlite3
+from flask import Blueprint
+import hw_tracker
 from hw_tracker.db import get_db
+
+
+def test_app(client):
+    bp = Blueprint('homework', __name__)
+    print(type(bp))
+    assert isinstance(bp, flask.blueprints.Blueprint)
 
 
 def test_index(client, auth):
@@ -23,6 +34,11 @@ def test_deleteconfirm(client):
     assert b'deleted' in response.data
 
 
+def test_emailconfirm(client):
+    response = client.get('/emailconfirm')
+    assert b'Email' in response.data
+
+
 def test_about(client):
     response = client.get('/about')
     assert b'settings' in response.data
@@ -31,6 +47,11 @@ def test_about(client):
 def test_welcome(client):
     response = client.get('/')
     assert b'settings' in response.data
+
+
+def test_toggle_theme(client):
+    response = client.get('toggle_theme')
+    assert response.status_code == 302
 
 
 def test_delete(client, app):
@@ -61,9 +82,22 @@ def test_update(client, auth, app):
     #     '/auth/login', data={'username': 'testuser', 'password': 'T#stpass'}
     # )
     auth.login()
+<<<<<<< HEAD
     assert client.get('/1/update').status_code == 200
     assert client.post('/1/update', data={'course': 'updated', 'name': 'test', 'typehw': 'assignment',
                        'desc': 'testtheassignment', 'duedate': '2022-05-05'}).status_code == 200
+=======
+    assert client.post('/1/update', data={}).status_code == 200
+    assert client.post('/1/update', data={'course': 'updated', 'name': 'test', 'type': 'assignment',
+                       'description': 'testtheassignment', 'duedate': '2022-05-05'}).status_code == 302
+
+
+def test_email(client, auth, app):
+    auth.login()
+    assert client.post('/1/email', data={}).status_code == 200
+    assert client.post(
+        "/1/email", data={"email_address": "tannedstone@gmail.com"}).status_code == 302
+>>>>>>> email
 
 
 @pytest.mark.parametrize(('path', 'code'), (
@@ -77,14 +111,15 @@ def test_does_not_exist(client, auth, path, code):
 
 def test_create(auth, client, app):
     auth.login()
-    assert client.get('/create').status_code == 200
-    response = client.post('/create', data={
+    assert client.post('/create').status_code == 200
+    assert client.post('/create', data={
         'course': 'test',
         'name': 'test',
-        'typehw': 'assignment',
-        'desc': 'testtheassignment',
+        'type': 'assignment',
+        'description': 'testtheassignment',
         'duedate': '2022-05-05'
-    })
+<<<<<<< HEAD
+    }).status_code == 200
 
     with app.app_context():
         db = get_db()
@@ -99,3 +134,6 @@ def test_create(auth, client, app):
     #     db = get_db()
     #     count = db.execute('SELECT COUNT(id) FROM hw').fetchone()[0]
     #     assert count == 2
+=======
+    }).status_code == 302
+>>>>>>> email

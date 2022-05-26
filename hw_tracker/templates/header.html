@@ -3,22 +3,28 @@
 {% block title %} Homework Tracker {% endblock %}
 
 {% block body %}
-    {% for message in get_flashed_messages() %}
-    {% if message %}
-    <div class="flash">{{ message }}</div>
-    {% else %}
-    {% endif %}
-    {% endfor %}
+{% for message in get_flashed_messages() %}
+{% if message %}
+<div class="flash">{{ message }}</div>
+{% else %}
+{% endif %}
+{% endfor %}
 <header>
     <h1><a href="/index" class="">Homework Tracker</a></h1>
+    {% if (request.path == '/index' or request.path == '/search') %}
+    <form action="/search" method="post" class="search"><input type="search" class="search-bar" name="search"><button
+            type="submit">Submit</button></form>
+    <!-- https://nikitahl.com/search-icon-inside-input -->
+    {% else %}
+    {% endif %}
     <div class="navbar-btn-container">
         {% if g.user %}
 
-            {% if request.path != '/' %}
-            {% if request.path != '/about' %}
-            <a href="/about" class="button button-5">About</a>
-            {% endif %}
-            {% endif %}
+        {% if request.path != '/' %}
+        {% if request.path != '/about' %}
+        <a href="/about" class="button button-5">About</a>
+        {% endif %}
+        {% endif %}
 
         <a href="/index" class="button button-1">Home</a>
         <a href="/create" class="button button-3">Create</a>

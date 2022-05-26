@@ -1,3 +1,3 @@
-from hw_tracker import create_app
+from hw_tracker import create_app #pragma: no cover
 
-app=create_app()
+app=create_app() #pragma: no cover
