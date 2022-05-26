@@ -82,11 +82,6 @@ def test_update(client, auth, app):
     #     '/auth/login', data={'username': 'testuser', 'password': 'T#stpass'}
     # )
     auth.login()
-<<<<<<< HEAD
-    assert client.get('/1/update').status_code == 200
-    assert client.post('/1/update', data={'course': 'updated', 'name': 'test', 'typehw': 'assignment',
-                       'desc': 'testtheassignment', 'duedate': '2022-05-05'}).status_code == 200
-=======
     assert client.post('/1/update', data={}).status_code == 200
     assert client.post('/1/update', data={'course': 'updated', 'name': 'test', 'type': 'assignment',
                        'description': 'testtheassignment', 'duedate': '2022-05-05'}).status_code == 302
@@ -97,7 +92,6 @@ def test_email(client, auth, app):
     assert client.post('/1/email', data={}).status_code == 200
     assert client.post(
         "/1/email", data={"email_address": "tannedstone@gmail.com"}).status_code == 302
->>>>>>> email
 
 
 @pytest.mark.parametrize(('path', 'code'), (
@@ -111,30 +105,6 @@ def test_does_not_exist(client, auth, path, code):
 
 def test_create(auth, client, app):
     auth.login()
-<<<<<<< HEAD
-    assert client.get('/create').status_code == 200
-    response = client.post('/create', data={
-        'course': 'test',
-        'name': 'test',
-        'typehw': 'assignment',
-        'desc': 'testtheassignment',
-        'duedate': '2022-05-05'
-    })
-
-    with app.app_context():
-        db = get_db()
-        count = db.execute('SELECT COUNT(id) FROM hw').fetchone()[0]
-        assert count == 1
-        hw = db.execute('SELECT * FROM hw WHERE id = 1').fetchone()
-        assert hw['course'] == 'test'
-
-    #assert response.headers['Location'] == '/homework/create'
-
-    # with app.app_context():
-    #     db = get_db()
-    #     count = db.execute('SELECT COUNT(id) FROM hw').fetchone()[0]
-    #     assert count == 2
-=======
     assert client.post('/create').status_code == 200
     assert client.post('/create', data={
         'course': 'test',
@@ -143,4 +113,3 @@ def test_create(auth, client, app):
         'description': 'testtheassignment',
         'duedate': '2022-05-05'
     }).status_code == 302
->>>>>>> email

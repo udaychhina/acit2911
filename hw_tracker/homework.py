@@ -103,8 +103,6 @@ def update(id):
 
     return render_template('homework/update.html', hw=hw)
 
-<<<<<<< HEAD
-=======
 
 @bp.route('/<int:id>/email', methods=('POST', 'GET'))
 @login_required
@@ -140,7 +138,6 @@ def email(id):
             return redirect(url_for('homework.emailconfirm'))
     return render_template('homework/email.html')
 
->>>>>>> email
 
 @bp.route('/<int:id>/delete')
 @login_required
