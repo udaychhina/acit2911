@@ -1,6 +1,7 @@
 from flask import (
     Blueprint, flash, g, redirect, session, render_template, request, url_for
 )
+from pyparsing import empty
 from werkzeug.exceptions import abort
 from hw_tracker.auth import login_required
 from hw_tracker.db import get_db
@@ -16,6 +17,38 @@ bp = Blueprint('homework', __name__)
 def welcome():
     return render_template('homework/welcome.html')
 
+@bp.route('/search', methods=('POST', 'GET'))
+def search():
+    db = get_db()
+    hw_items = db.execute(
+        'SELECT hw.id, course, name, typehw, desc, duedate, completed, author_id, u.username'
+        '   FROM hw JOIN user u on hw.author_id = u.id'
+    ).fetchall()
+
+    if request.method == 'POST':
+        search_term = request.form.get("search")
+        error = None
+
+        if search_term == "":
+            return render_template('homework/index.html', hw_items=hw_items)
+        
+        if search_term != "":
+            hw_items = db.execute(
+                'SELECT hw.id, course, name, typehw, desc, duedate, completed, author_id, user.username'
+                '   FROM hw JOIN user ON hw.author_id = user.id'
+                '   WHERE course LIKE ? OR name LIKE ? OR typehw LIKE ? OR desc LIKE ?',
+                (f'%{search_term}%', f'%{search_term}%', f'%{search_term}%', f'%{search_term}%')
+            ).fetchall()
+
+            if hw_items is None:
+                error = 'No results found.'
+            
+            if error is not None:
+                flash(error)
+            else:
+                return render_template('homework/index.html', hw_items=hw_items)
+
+    return render_template('homework/index.html', hw_items=hw_items)
 
 @bp.route('/index')
 def index():
@@ -25,7 +58,7 @@ def index():
         '   FROM hw JOIN user u on hw.author_id = u.id'
     ).fetchall()
     return render_template('homework/index.html', hw_items=hw_items)
-
+    
 
 @bp.route('/create', methods=('POST', 'GET'))
 @login_required
