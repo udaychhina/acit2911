@@ -33,7 +33,3 @@ def schedule(course, desc, email_address, y, m, d):
                       trigger='cron',
                       year=y, month=m, day=d, hour=10, minute=10,  second=10, args=(course, desc, email_address))
     scheduler.start()
-
-
-if __name__ == "__main__":
-    email_alert("Hey", "Hello buddy lets 420", "tannedstone@gmail.com")
