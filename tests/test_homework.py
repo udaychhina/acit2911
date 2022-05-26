@@ -94,6 +94,13 @@ def test_email(client, auth, app):
         "/1/email", data={"email_address": "tannedstone@gmail.com"}).status_code == 302
 
 
+def test_search(client, auth, app):
+    auth.login()
+    assert client.get('/search').status_code == 200
+    assert client.post('/search', data={"search": ""}).status_code == 200
+    assert client.post('/search', data={"search": "test"}).status_code == 200
+
+
 @pytest.mark.parametrize(('path', 'code'), (
     ('/2/update', 404),
     ('/2/delete', 405),
