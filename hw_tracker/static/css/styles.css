@@ -163,16 +163,21 @@ tr:hover td {
 }
 
 /*Buttons*/
-/* .button-container {
-    display: flex;
-    justify-content: flex-start;
-    align-items: initial;
-    gap: 4.4px;
-} */
 
 .button {
     border: none;
     padding: 7px 17px;
+    border-radius: 20px;
+    color: var(--light);
+    display: inline-block;
+    font-size: medium;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.emailbtn {
+    border: none;
+    padding: 7px 10px;
     border-radius: 20px;
     color: var(--light);
     display: inline-block;
