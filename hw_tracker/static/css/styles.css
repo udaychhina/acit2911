@@ -140,10 +140,12 @@ thead th {
 
 th,
 td {
+
     border-bottom: 1px solid var(--border-color);
     padding: 10px 20px;
     font-size: 20px;
     text-align: center;
+
 }
 
 /*https://www.w3schools.com/cssref/sel_nth-child.asp*/
